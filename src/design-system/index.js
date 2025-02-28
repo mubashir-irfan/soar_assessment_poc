@@ -6,16 +6,18 @@ module.exports = {
     active: '#232323',
     inactive: '#B1B1B1',
     background: {
-      light: '#F6F7FA', // Greyish background for main area
-      white: '#FFFFFF', // White background for navbar and header
+      light: '#F6F7FA',
+      white: '#FFFFFF',
       dark: '#212529',
     },
     text: {
+      primary: '#232323',
+      secondary: '#718EBF',
       light: '#212529',
       dark: '#f8f9fa',
     },
     border: {
-      light: '#E6EFF6', // Updated light border color
+      light: '#E6EFF6',
       dark: '#495057',
     },
   },

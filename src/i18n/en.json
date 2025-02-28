@@ -3,15 +3,17 @@
     "overview": "Overview",
     "myCards": "My Cards",
     "seeAll": "See All",
-    "recentTransactions": {
-      "title": "Recent Transactions",
-      "noTransactions": "No recent transactions."
-    }
+     "recentTransactions": "Recent Transactions"
   },
   "card": {
     "balance": "Balance",
     "cardHolder": "Card Holder",
     "validThru": "Valid Thru"
+  },
+  "transaction": {
+    "withdrawalFromCard": "Withdrawal from card",
+    "depositPaypal": "Deposit from PayPal",
+    "contactFrom": "Deposit from {{name}}"
   },
   "settings": {
     "settings": "Settings",
