@@ -1,0 +1,14 @@
+{
+  "dashboard": "Dashboard",
+  "settings": "Settings",
+  "welcome": "Welcome onboard, {{name}}!",
+  "loading": "Loading...",
+  "error": "Error: {{message}}",
+  "bankingCards": "Banking Cards",
+  "expenseBreakdown": "Expense Breakdown",
+  "latestTransactions": "Latest Transactions",
+  "weeklyActivity": "Weekly Activity",
+  "quickTransfer": "Quick Transfer",
+  "balanceHistory": "Balance History",
+  "sendAmount": "Send Amount"
+}

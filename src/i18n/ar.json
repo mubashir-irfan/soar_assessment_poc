@@ -1,0 +1,14 @@
+{
+  "dashboard": "لوحة التحكم",
+  "settings": "الإعدادات",
+  "welcome": "مرحباً، {{name}}!",
+  "loading": "جارٍ التحميل...",
+  "error": "خطأ: {{message}}",
+  "bankingCards": "بطاقات مصرفية",
+  "expenseBreakdown": "تحليل المصاريف",
+  "latestTransactions": "أحدث المعاملات",
+  "weeklyActivity": "النشاط الأسبوعي",
+  "quickTransfer": "تحويل سريع",
+  "balanceHistory": "سجل الرصيد",
+  "sendAmount": "إرسال المبلغ"
+}
