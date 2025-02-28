@@ -8,7 +8,7 @@ function Dashboard() {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { i18n } = useI18n(); // Use i18n hook
+  const { i18n } = useI18n(); 
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,16 +38,8 @@ function Dashboard() {
 
   return (
     <div className="p-4">
-      <p>Test string</p>
-      <h2 className="text-2xl font-bold mb-4">{i18n.t('dashboard')}</h2> {/* Translated title */}
+      <p>Dashboard TBD</p>
       <p>{i18n.t('welcome', { name: userData.name })}</p> {/* Translated welcome message */}
-      <div className="p-4">
-        <h2 className="text-3xl text-primary font-bold mb-4">{i18n.t('dashboard')}</h2>
-        <p className="text-text-light dark:text-text-dark">{i18n.t('welcome', { name: 'John Doe' })}</p>
-        <div className="border border-border-light dark:border-border-dark p-4 mt-4">
-          <p className="text-sm text-secondary">This is a box with a border.</p>
-        </div>
-      </div>
     </div>
   );
 }

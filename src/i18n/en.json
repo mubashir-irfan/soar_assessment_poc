@@ -1,7 +1,7 @@
 {
   "dashboard": "Dashboard",
   "settings": "Settings",
-  "welcome": "Welcome onboard, {{name}}!",
+  "welcome": "Welcome, {{name}}!",
   "loading": "Loading...",
   "error": "Error: {{message}}",
   "bankingCards": "Banking Cards",
@@ -10,5 +10,7 @@
   "weeklyActivity": "Weekly Activity",
   "quickTransfer": "Quick Transfer",
   "balanceHistory": "Balance History",
-  "sendAmount": "Send Amount"
+  "sendAmount": "Send Amount",
+  "overview": "Overview",
+  "soarTask": "Soar Task"
 }

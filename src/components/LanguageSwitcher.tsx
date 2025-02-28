@@ -9,7 +9,7 @@ function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2 text-sm">
       <button
         onClick={() => handleLanguageChange('en')}
         className={`px-2 py-1 rounded ${

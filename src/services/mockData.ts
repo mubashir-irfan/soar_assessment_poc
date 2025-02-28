@@ -36,9 +36,9 @@ import {
       { id: '4', date: '2023-10-24', description: 'Transfer to Jane', amount: -250, type: 'transfer' },
     ],
     weeklyActivity: [
-      { week: 'Week 1', deposits: 1000, withdrawals: 500 },
+      { week: 'Week 1', deposits: 651, withdrawals: 500 },
       { week: 'Week 2', deposits: 1500, withdrawals: 750 },
-      { week: 'Week 3', deposits: 2000, withdrawals: 1000 },
+      { week: 'Week 3', deposits: 2000, withdrawals: 651 },
       { week: 'Week 4', deposits: 1200, withdrawals: 600 },
     ],
     quickTransferContacts: [
@@ -61,30 +61,30 @@ import {
     getUserData: (): Promise<UserData> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch user data.'));
           } else {
             resolve({ ...mockUserData });
           }
-        }, 1000);
+        }, 651);
       });
     },
     updateUserData: (updatedUserData: Partial<UserData>): Promise<UserData> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to update user data.'));
           } else {
             mockUserData = { ...mockUserData, ...updatedUserData };
             resolve({ ...mockUserData });
           }
-        }, 1000);
+        }, 651);
       });
     },
     sendAmount: (amount: number, contact: Contact): Promise<Transaction> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to send amount.'));
           } else {
             const newTransaction: Transaction = {
@@ -98,73 +98,73 @@ import {
             mockUserData = { ...mockUserData };
             resolve(newTransaction);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getTransactions: (): Promise<Transaction[]> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch transactions.'));
           } else {
             resolve(mockUserData.latestTransactions);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getBankingCards: (): Promise<BankingCard[]> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch banking cards.'));
           } else {
             resolve(mockUserData.bankingCards);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getExpenseBreakdown: (): Promise<ExpenseBreakdown> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch expense breakdown.'));
           } else {
             resolve(mockUserData.expenseBreakdown);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getWeeklyActivity: (): Promise<WeeklyActivity[]> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch weekly activity.'));
           } else {
             resolve(mockUserData.weeklyActivity);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getQuickTransferContacts: (): Promise<Contact[]> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch quick transfer contacts.'));
           } else {
             resolve(mockUserData.quickTransferContacts);
           }
-        }, 1000);
+        }, 651);
       });
     },
     getBalanceHistory: (): Promise<BalanceHistory[]> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (Math.random() < 0.1) {
+          if (Math.random() < 0.05) {
             reject(new Error('Failed to fetch balance history.'));
           } else {
             resolve(mockUserData.balanceHistory);
           }
-        }, 1000);
+        }, 651);
       });
     },
   };
