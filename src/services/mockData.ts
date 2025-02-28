@@ -28,7 +28,7 @@ import {
         cardNumber: '3778 **** **** 1234',
         expiryDate: '01/25',
         vendor: CardVendor.MASTERCARD, // Updated to vendor
-        balance: 9876.54,
+        balance: 5756,
         cardHolder: 'Jane Smith',
         validThru: '01/25',
         logo: '/mastercard.svg',
@@ -38,7 +38,7 @@ import {
         cardNumber: '1234 **** **** 3778',
         expiryDate: '12/24',
         vendor: CardVendor.VISA, // Updated to vendor
-        balance: 12345.67,
+        balance: 5756,
         cardHolder: 'John Doe',
         validThru: '12/24',
         logo: '/visa.svg',

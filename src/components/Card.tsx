@@ -1,10 +1,12 @@
 // src/components/Card.tsx
 
 import React from 'react';
-import { formatCurrency } from '../utils';
-import { SoarCardType, CardVendor } from '../types';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import { RiVisaLine } from 'react-icons/ri';
 import { SiMastercard } from 'react-icons/si';
+import { CardChip } from '.';
+import { CardVendor, SoarCardType } from '../types';
+import { formatCurrency } from '../utils';
 
 interface CardProps {
   card: {
@@ -19,12 +21,13 @@ interface CardProps {
 
 function Card({ card }: CardProps) {
   const isPremium = card.type === SoarCardType.SOAR_PREMIUM;
+  const { t } = useTranslation(); // Initialize useTranslation hook
 
   const renderCardLogo = () => {
     if (card.vendor === CardVendor.MASTERCARD) {
       return (
         <SiMastercard
-          size={30}
+          size={25}
           color={isPremium ? 'white' : '#9199AF80'}
           style={{ opacity: isPremium ? 1 : 0.5 }}
         />
@@ -37,32 +40,35 @@ function Card({ card }: CardProps) {
 
   return (
     <div
-      className={`flex flex-col rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] ${
+      className={`flex flex-col rounded-[1rem] sm:rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] ${
         isPremium
           ? 'bg-gradient-to-r from-[#5B5A6F] to-[#000000]'
           : 'bg-white text-[#718EBF] border border-border-light'
       }`}
     >
-      <div className="px-[1.625rem] py-[1.5rem] flex-grow flex flex-col justify-between">
+      
+      <div className="px-[1.25rem] py-2 sm:py-4 flex-grow flex flex-col justify-around">
         <div className="flex justify-between items-start">
           <div>
-            <div className={`text-[0.75rem] font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>Balance</div>
+            <div className={`text-[0.65rem] sm:text-[0.75rem] font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>{t('card.balance')}</div>
             <div
-              className={`text-[0.9375rem] font-semibold ${
+              className={`text-base sm:text-[1.25rem] sm:text-base font-semibold ${
                 isPremium ? 'text-white' : 'text-soar'
               }`}
             >
               {formatCurrency(card.balance)}
             </div>
           </div>
-          <div>{/* Placeholder for chip icon */}</div>
+          <div className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] ${isPremium ? 'text-white' : 'text-[#474246]'}`}>
+            <CardChip />
+          </div>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex gap-[3.35rem] sm:gap-[4.1875rem]">
           <div>
-            <div className={`text-[0.75rem] font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>Card Holder</div>
+            <div className={`text-[0.65rem] sm:text-[0.75rem]font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>{t('card.cardHolder')}</div>
             <div
-              className={`text-[0.9375rem] font-semibold ${
+              className={`text-[0.8125rem] sm:text-base font-semibold ${
                 isPremium ? 'text-white' : 'text-soar'
               }`}
             >
@@ -70,9 +76,9 @@ function Card({ card }: CardProps) {
             </div>
           </div>
           <div>
-            <div className={`text-[0.75rem] font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>Valid Thru</div>
+            <div className={`text-[0.65rem] sm:text-[0.75rem]font-normal ${isPremium ? 'text-white' : 'text-[#718EBF]'}`}>{t('card.validThru')}</div>
             <div
-              className={`text-[0.9375rem] font-semibold ${
+              className={`text-[0.8125rem] sm:text-base font-semibold ${
                 isPremium ? 'text-white' : 'text-soar'
               }`}
             >
@@ -83,12 +89,12 @@ function Card({ card }: CardProps) {
       </div>
 
       <div
-        className={`flex justify-between px-[1.625rem] ${isPremium ? 'py-[1.5rem]' : 'py-[1.4375rem]'} items-center w-full ${
-          isPremium ? 'bg-white/20' : 'border-t border-border-light'
+        className={`flex justify-between px-[1.25rem] ${isPremium ? 'py-[1rem]' : 'py-[0.75rem] sm:py-[0.9375rem]'} items-center w-full ${
+          isPremium ? 'bg-white/15' : 'border-t border-border-light'
         }`}
       >
         <div
-          className={`text-[1.375rem] font-semibold ${
+          className={`text-base sm:text-[1.25rem] font-semibold ${
             isPremium ? 'text-white' : 'text-soar'
           }`}
         >

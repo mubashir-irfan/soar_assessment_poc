@@ -8,6 +8,11 @@
       "noTransactions": "لا توجد معاملات حديثة."
     }
   },
+  "card": {
+    "balance": "الرصيد",
+    "cardHolder": "حامل البطاقة",
+    "validThru": "صالح حتى"
+  },
   "settings": {
     "settings": "الإعدادات",
     "editProfile": {

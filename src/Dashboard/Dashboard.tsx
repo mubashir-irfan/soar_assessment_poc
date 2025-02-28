@@ -45,7 +45,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-background-white sm:bg-background-light">
       {/* Cards Section */}
       <section className="overflow-x-auto whitespace-nowrap p-4">
         <div className="flex items-center justify-between mb-4">
@@ -54,7 +54,7 @@ function Dashboard() {
         </div>
 
         {cards.map((card, index) => (
-          <div key={index} className="inline-block mr-4 last:mr-0">
+          <div key={index} className="inline-block me-4 last:me-0">
             <Card card={card} />
           </div>
         ))}

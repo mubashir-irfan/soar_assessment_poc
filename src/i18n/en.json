@@ -8,6 +8,11 @@
       "noTransactions": "No recent transactions."
     }
   },
+  "card": {
+    "balance": "Balance",
+    "cardHolder": "Card Holder",
+    "validThru": "Valid Thru"
+  },
   "settings": {
     "settings": "Settings",
     "editProfile": {

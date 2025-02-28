@@ -32,11 +32,11 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div dir={dir} className="min-h-screen flex">
       <div className="hidden sm:block bg-background-white">
-        <Navbar />
+      <Navbar />
       </div>
 
       <div className="flex-grow flex flex-col bg-background-white">
-        <header className="p-4 flex items-center justify-between sm:justify-start border-b border-border-light dark:border-border-dark sm:border-b-0">
+        <header className="p-4 flex items-center justify-between sm:justify-start sm:border-b sm:border-border-light dark:border-border-dark sm:border-b-0">
           <div className="sm:hidden">
             <AiOutlineMenu size={18} className="text-soar" />
           </div>
@@ -44,7 +44,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             {t(getHeaderTitle())}
           </h1>
         </header>
-        <main className="flex-grow p-4 bg-background-light">
+        <main className="flex-grow bg-background-light">
           {children}
         </main>
       </div>
