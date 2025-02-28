@@ -32,7 +32,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div dir={dir} className="min-h-screen flex">
       <div className="hidden sm:block bg-background-white">
-      <Navbar />
+        <Navbar />
       </div>
 
       <div className="flex-grow flex flex-col bg-background-white">

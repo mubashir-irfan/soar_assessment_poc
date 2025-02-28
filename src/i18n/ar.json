@@ -3,15 +3,17 @@
     "overview": "نظرة عامة",
     "myCards": "بطاقاتي",
     "seeAll": "عرض الكل",
-    "recentTransactions": {
-      "title": "أحدث المعاملات",
-      "noTransactions": "لا توجد معاملات حديثة."
-    }
+     "recentTransactions": "العمليات الأخيرة"
   },
   "card": {
     "balance": "الرصيد",
     "cardHolder": "حامل البطاقة",
     "validThru": "صالح حتى"
+  },
+  "transaction": {
+    "withdrawalFromCard": "سحب من البطاقة",
+    "depositPaypal": "إيداع من باي بال",
+    "contactFrom": "إيداع من {{name}}"
   },
   "settings": {
     "settings": "الإعدادات",
@@ -20,10 +22,10 @@
       "saveButton": "حفظ التغييرات"
     },
     "preferences": {
-        "title": "التفضيلات"
+      "title": "التفضيلات"
     },
     "security": {
-        "title": "الأمان"
+      "title": "الأمان"
     }
   },
   "common": {
