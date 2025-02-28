@@ -1,16 +1,33 @@
 {
-  "dashboard": "لوحة التحكم",
-  "settings": "الإعدادات",
-  "welcome": "مرحباً، {{name}}!",
-  "loading": "جارٍ التحميل...",
-  "error": "خطأ: {{message}}",
-  "bankingCards": "بطاقات مصرفية",
-  "expenseBreakdown": "تحليل المصاريف",
-  "latestTransactions": "أحدث المعاملات",
-  "weeklyActivity": "النشاط الأسبوعي",
-  "quickTransfer": "تحويل سريع",
-  "balanceHistory": "سجل الرصيد",
-  "sendAmount": "إرسال المبلغ",
-  "overview": "نظرة عامة",
-  "soarTask": "Soar مهمة"
+  "dashboard": {
+    "overview": "نظرة عامة",
+    "myCards": "بطاقاتي",
+    "seeAll": "عرض الكل",
+    "recentTransactions": {
+      "title": "أحدث المعاملات",
+      "noTransactions": "لا توجد معاملات حديثة."
+    }
+  },
+  "settings": {
+    "settings": "الإعدادات",
+    "editProfile": {
+      "title": "تعديل الملف الشخصي",
+      "saveButton": "حفظ التغييرات"
+    },
+    "preferences": {
+        "title": "التفضيلات"
+    },
+    "security": {
+        "title": "الأمان"
+    }
+  },
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "error": "خطأ: {{message}}"
+  },
+  "navbar": {
+    "dashboard": "لوحة التحكم",
+    "settings": "الإعدادات",
+    "soarTask": "Soar مهمة"
+  }
 }

@@ -8,6 +8,8 @@ import {
     WeeklyActivity,
     Contact,
     BalanceHistory,
+    CardVendor,
+    SoarCardType,
   } from '../types';
   
   let mockUserData: UserData = {
@@ -22,8 +24,26 @@ import {
     postalCode: '12345',
     country: 'USA',
     bankingCards: [
-      { cardNumber: '**** **** **** 1234', expiryDate: '12/24', cardType: 'Visa' },
-      { cardNumber: '**** **** **** 5678', expiryDate: '01/25', cardType: 'MasterCard' },
+      {
+        cardNumber: '3778 **** **** 1234',
+        expiryDate: '01/25',
+        vendor: CardVendor.MASTERCARD, // Updated to vendor
+        balance: 9876.54,
+        cardHolder: 'Jane Smith',
+        validThru: '01/25',
+        logo: '/mastercard.svg',
+        type: SoarCardType.SOAR_PREMIUM, // Updated to SoarCardType
+      },
+      {
+        cardNumber: '1234 **** **** 3778',
+        expiryDate: '12/24',
+        vendor: CardVendor.VISA, // Updated to vendor
+        balance: 12345.67,
+        cardHolder: 'John Doe',
+        validThru: '12/24',
+        logo: '/visa.svg',
+        type: SoarCardType.SOAR_STANDARD, // Updated to SoarCardType
+      },
     ],
     expenseBreakdown: {
       labels: ['Groceries', 'Entertainment', 'Utilities', 'Travel'],
@@ -81,6 +101,17 @@ import {
         }, 651);
       });
     },
+    getBankingCards: (): Promise<BankingCard[]> => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (Math.random() < 0.05) {
+            reject(new Error('Failed to fetch banking cards.'));
+          } else {
+            resolve(mockUserData.bankingCards);
+          }
+        }, 651);
+      });
+    },
     sendAmount: (amount: number, contact: Contact): Promise<Transaction> => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -108,17 +139,6 @@ import {
             reject(new Error('Failed to fetch transactions.'));
           } else {
             resolve(mockUserData.latestTransactions);
-          }
-        }, 651);
-      });
-    },
-    getBankingCards: (): Promise<BankingCard[]> => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (Math.random() < 0.05) {
-            reject(new Error('Failed to fetch banking cards.'));
-          } else {
-            resolve(mockUserData.bankingCards);
           }
         }, 651);
       });

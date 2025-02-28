@@ -1,3 +1,24 @@
+export enum SoarCardType {
+  SOAR_PREMIUM = 'SOAR_PREMIUM',
+  SOAR_STANDARD = 'SOAR_STANDARD',
+}
+
+export enum CardVendor {
+  VISA = 'Visa',
+  MASTERCARD = 'MasterCard',
+}
+
+export interface BankingCard {
+  cardNumber: string;
+  expiryDate: string;
+  vendor: CardVendor; // Changed to vendor
+  balance: number;
+  cardHolder: string;
+  validThru: string;
+  logo: string;
+  type: SoarCardType; // Changed to SoarCardType
+}
+
 export interface UserData {
     avatar: string;
     name: string;
@@ -17,14 +38,7 @@ export interface UserData {
     quickTransferContacts: Contact[];
     balanceHistory: BalanceHistory[];
   }
-  
-  export interface BankingCard {
-    cardNumber: string;
-    expiryDate: string;
-    cardType: 'Visa' | 'MasterCard' | 'Amex';
-    // Add other card details
-  }
-  
+
   export interface ExpenseBreakdown {
     labels: string[];
     data: number[];

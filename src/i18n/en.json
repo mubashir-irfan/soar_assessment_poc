@@ -1,16 +1,33 @@
 {
-  "dashboard": "Dashboard",
-  "settings": "Settings",
-  "welcome": "Welcome, {{name}}!",
-  "loading": "Loading...",
-  "error": "Error: {{message}}",
-  "bankingCards": "Banking Cards",
-  "expenseBreakdown": "Expense Breakdown",
-  "latestTransactions": "Latest Transactions",
-  "weeklyActivity": "Weekly Activity",
-  "quickTransfer": "Quick Transfer",
-  "balanceHistory": "Balance History",
-  "sendAmount": "Send Amount",
-  "overview": "Overview",
-  "soarTask": "Soar Task"
+  "dashboard": {
+    "overview": "Overview",
+    "myCards": "My Cards",
+    "seeAll": "See All",
+    "recentTransactions": {
+      "title": "Recent Transactions",
+      "noTransactions": "No recent transactions."
+    }
+  },
+  "settings": {
+    "settings": "Settings",
+    "editProfile": {
+      "title": "Edit Profile",
+      "saveButton": "Save Changes"
+    },
+    "preferences": {
+        "title": "Preferences"
+    },
+    "security": {
+        "title": "Security"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error: {{message}}"
+  },
+  "navbar": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "soarTask": "Soar Task"
+  }
 }

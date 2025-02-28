@@ -20,7 +20,7 @@ module.exports = {
         '.focus-ring': {
           '&:focus': {
             outline: 'none',
-            boxShadow: `0 0 0 2px ${theme('colors.soar')}`, // Use design system color
+            boxShadow: `0 0 0 2px ${theme('colors.soar')}`,
             borderRadius: '0.375rem',
           },
         },

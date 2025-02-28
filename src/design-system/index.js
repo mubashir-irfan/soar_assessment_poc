@@ -6,8 +6,8 @@ module.exports = {
     active: '#232323',
     inactive: '#B1B1B1',
     background: {
-      light: '#FFFFFF', // Updated to plain white
-      lightContent: '#F6F7FA', // Added light content background
+      light: '#F6F7FA', // Greyish background for main area
+      white: '#FFFFFF', // White background for navbar and header
       dark: '#212529',
     },
     text: {
