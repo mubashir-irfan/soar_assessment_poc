@@ -1,29 +1,41 @@
-import React from 'react';
+import { FaClipboardCheck } from "react-icons/fa6";
+import { IoIosSettings, IoMdHome } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
-import { AiOutlineHome, AiOutlineSetting } from 'react-icons/ai';
-import {LanguageSwitcher} from '.';
+import { useI18n } from '../context/I18nContext';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const location = useLocation();
+  const { t } = useTranslation();
+  const { i18n } = useI18n();
 
   const navItems = [
-    { path: '/', label: 'Dashboard', icon: <AiOutlineHome size={20} /> },
-    { path: '/settings', label: 'Settings', icon: <AiOutlineSetting size={20} /> },
+    { path: '/', label: 'navbar.dashboard', icon: <IoMdHome size={25} aria-hidden="true" />, ariaLabel: 'Dashboard' },
+    { path: '/settings', label: 'navbar.settings', icon: <IoIosSettings size={25} aria-hidden="true" />, ariaLabel: 'Settings' },
   ];
 
   return (
-    <nav className="flex flex-col h-screen border-r border-gray-200 p-4">
-      <ul className="space-y-4 mb-auto">
+    <nav
+      aria-label="Main Navigation"
+      className="flex flex-col h-screen border-e border-border-light dark:border-border-dark p-4 w-[15.625rem] bg-background-white"
+    >
+      <div className="flex items-center mb-8">
+        <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
+        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar">{t('navbar.soarTask')}</span>
+      </div>
+      <ul className="space-y-[2.4375rem] mb-auto">
         {navItems.map((item) => (
           <li key={item.path}>
             <Link
               to={item.path}
-              className={`flex items-center space-x-2 ${
-                location.pathname === item.path ? 'text-black' : 'text-gray-400'
-              }`}
+              aria-label={item.ariaLabel}
+              className={`flex items-center gap-[1.625rem] font-[500] text-[1.125rem] ${
+                location.pathname === item.path || (location.pathname === `/dashboard` && item.path === '/') ? 'text-active' : 'text-inactive'
+              } focus-ring`}
             >
               {item.icon}
-              <span>{item.label}</span>
+              <span>{t(item.label)}</span>
             </Link>
           </li>
         ))}
