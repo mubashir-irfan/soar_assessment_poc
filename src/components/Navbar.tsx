@@ -17,7 +17,10 @@ function Navbar() {
   ];
 
   return (
-    <nav aria-label="Main Navigation" className="flex flex-col h-screen border-r border-border-light dark:border-border-dark p-4 w-[15.625rem] bg-background-light">
+    <nav
+      aria-label="Main Navigation"
+      className="flex flex-col h-screen border-e border-border-light dark:border-border-dark p-4 w-[15.625rem] bg-background-light" // Using border-e
+    >
       <div className="flex items-center mb-8">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
         <span className="ml-[0.625rem] font-[800] text-[1.5625rem] text-soar">{t('soarTask')}</span>
@@ -28,7 +31,9 @@ function Navbar() {
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
-              className={`flex items-center space-x-[1.625rem] font-[500] text-[1.125rem] ${location.pathname === item.path || (location.pathname === `/dashboard` && item.path === '/') ? 'text-active' : 'text-inactive'} focus:outline-none focus:ring-2 focus:ring-soar focus:ring-opacity-75 rounded-md`} // Updated focus styles
+              className={`flex items-center space-x-[1.625rem] font-[500] text-[1.125rem] ${
+                location.pathname === item.path || (location.pathname === `/dashboard` && item.path === '/') ? 'text-active' : 'text-inactive'
+              } focus-ring`}
             >
               {item.icon}
               <span>{t(item.label)}</span>
