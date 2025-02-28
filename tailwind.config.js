@@ -11,6 +11,9 @@ module.exports = {
       colors: designSystem.colors,
       fontSize: designSystem.fontSize,
       spacing: designSystem.spacing,
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Apply Inter to sans-serif
+      },
     },
   },
   plugins: [],

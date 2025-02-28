@@ -1,18 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { MantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
-import Dashboard from './Dashboard/Dashboard';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
 import { Layout, RouteGuard } from './components';
+import { AuthProvider } from './context/AuthContext';
 import { I18nProvider } from './context/I18nContext'; // Import I18nProvider
-
+import Dashboard from './Dashboard/Dashboard';
 
 function App() {
+  const theme = createTheme({
+    fontFamily: 'Inter, sans-serif',
+  });
+
   return (
-    <MantineProvider>
+    <MantineProvider theme={theme}>
       <AuthProvider>
         <I18nProvider>
           <div className="App">
