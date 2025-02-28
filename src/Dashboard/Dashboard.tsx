@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  UserData } from '../types';
+import { UserData } from '../types';
 import { Loader } from '../shared/components';
 import { useI18n } from '../context/I18nContext';
 import { mockDataService } from '../services/mockData';
@@ -41,7 +41,13 @@ function Dashboard() {
       <p>Test string</p>
       <h2 className="text-2xl font-bold mb-4">{i18n.t('dashboard')}</h2> {/* Translated title */}
       <p>{i18n.t('welcome', { name: userData.name })}</p> {/* Translated welcome message */}
-      {/* Display other user data here */}
+      <div className="p-4">
+        <h2 className="text-3xl text-primary font-bold mb-4">{i18n.t('dashboard')}</h2>
+        <p className="text-text-light dark:text-text-dark">{i18n.t('welcome', { name: 'John Doe' })}</p>
+        <div className="border border-border-light dark:border-border-dark p-4 mt-4">
+          <p className="text-sm text-secondary">This is a box with a border.</p>
+        </div>
+      </div>
     </div>
   );
 }
