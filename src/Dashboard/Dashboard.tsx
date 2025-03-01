@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
-import { BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
-import WeeklyActivitBarChart from './WeeklyActivityBarChart';
+import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
 import QuickTransferWidget from './QuickTransferWidget';
+import WeeklyActivitBarChart from './WeeklyActivityBarChart';
+import BalanceHistoryChart from './BalanceHistoryChart';
 
 function Dashboard() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ function Dashboard() {
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity>();
   const [expenseStatistics, setExpenseStatistics] = useState<ExpenseStatistic[]>([]);
   const [contacts, setContacts] = useState<Contact[]>([]);
+  const [balanceHistory, setBalanceHistory] = useState<BalanceHistory>();
 
   useEffect(() => {
     mockDataService.getBankingCards().then(setCards);
@@ -20,6 +22,7 @@ function Dashboard() {
     mockDataService.getWeeklyActivity().then(setWeeklyActivity);
     mockDataService.getExpenseStatistics().then(setExpenseStatistics);
     mockDataService.getContacts().then(setContacts);
+    mockDataService.getBalanceHistory().then(setBalanceHistory);
   }, []);
 
   return (
@@ -84,10 +87,10 @@ function Dashboard() {
       </div>
 
       {/* Third row: Quick Send and Balance History (Flexbox) */}
-      <div className="w-full max-w-[90vw] sm:flex gap-4">
+      <div className="w-full max-w-[90vw] flex flex-col sm:flex-row gap-4">
         <section className="rounded-[1.5rem] sm:w-[40%]">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
-          <div className='mt-4'>
+          <div className='mt-4 h-[14rem] sm:h-[17.25rem]'>
             <QuickTransferWidget contacts={contacts} />
           </div>
         </section>
@@ -95,7 +98,9 @@ function Dashboard() {
 
         <section className="sm:flex-grow">
         <h2 className="text-lg font-semibold text-soar">Balance History</h2>
-          <div className='mt-4 p-4 bg-white rounded-[1.5rem]'></div>
+          <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] sm:h-[17.25rem]'>
+            <BalanceHistoryChart history={balanceHistory} />
+          </div>
         </section>
       </div>
     </div>

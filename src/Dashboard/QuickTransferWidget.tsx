@@ -58,7 +58,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   }, [scrollPosition]);
 
   return (
-    <div className="bg-white rounded-[1.5rem] px-6 py-9">
+    <div className="bg-white rounded-[1.5rem] px-3 py-6 sm:px-6 sm:py-9 h-full w-full flex flex-col gap-6 justify-between">
       {/* Contacts Section */}
       <section aria-label="Contacts">
         <div className="flex items-center whitespace-nowrap mb-4">
@@ -81,17 +81,17 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
                 <img
                   src={contact.avatarURL}
                   alt={contact.name}
-                  className="rounded-full w-[70px] h-[70px] sm:w-[50px] sm:h-[50px] object-cover"
+                  className="rounded-full w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] object-cover"
                 />
                 <div
-                  className={`text-[16px] sm:text-[12px] text-[#232323] mt-3 ${
+                  className={`text-[12px] sm:text-[16px] text-[#232323] mt-3 ${
                     selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
                   }`}
                 >
                   {contact.name}
                 </div>
                 <div
-                  className={`text-[15px] sm:text-[12px] text-text-secondary ${
+                  className={`text-[12px] sm:text-[15px] text-text-secondary ${
                     selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
                   }`}
                 >
@@ -121,7 +121,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
         <div className="flex items-center gap-4 max-w-[24rem] mx-auto">
           <label
             htmlFor="amountInput"
-            className="text-text-secondary text-[16px] sm:text-[12px] font-normal me-2"
+            className="text-text-secondary text-[12px] sm:text-[16px] font-normal me-2"
           >
             {t('quickTransfer.writeAmount')}
           </label>
@@ -131,7 +131,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               type="number"
               id="amountInput"
               placeholder={t('quickTransfer.enterAmount')}
-              className={`w-full bg-[#EDF1F7] rounded-[50px] p-3 pe-20 text-text-secondary text-[16px] sm:text-[12px] font-normal focus:outline-none focus:ring-2 focus:ring-soar`}
+              className={`w-full bg-[#EDF1F7] rounded-[50px] p-3 pe-20 text-text-secondary text-[12px] sm:text-[16px] font-normal focus:outline-none focus:ring-2 focus:ring-soar`}
               aria-label="Enter Amount to Send"
             />
             <button
@@ -142,7 +142,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               disabled={!selectedContact || isSending}
               aria-label="Send Amount"
             >
-              <span className="text-white text-[16px] sm:text-[13px] font-medium me-2">
+              <span className="text-white text-[13px] sm:text-[16px] font-medium me-2">
                 {isSending ? t('quickTransfer.sending') : t('quickTransfer.send')}
               </span>
               <IoMdPaperPlane className={`w-5 h-5 text-white ${isRTL ? 'scale-x-[-1]' : ''}`} />

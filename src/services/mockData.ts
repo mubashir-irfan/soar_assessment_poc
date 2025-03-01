@@ -130,6 +130,10 @@ let mockUserData: User = {
       avatarURL: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
   ],
+  balanceHistory: {
+    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+    amounts: [150, 375, 220, 430, 510, 800, 205],
+  }
 };
 
 export const mockDataService = {
@@ -148,6 +152,9 @@ export const mockDataService = {
   getContacts: () => {
     return delayedPromise(mockUserData.contacts);
   },
+  getBalanceHistory: () => {
+    return delayedPromise(mockUserData.balanceHistory);
+  }
 };
 
 const delayedPromise = <T>(data: T): Promise<T> => {

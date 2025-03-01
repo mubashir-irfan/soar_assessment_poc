@@ -3,8 +3,9 @@ export interface User {
   bankingCards: BankingCard[];
   latestTransactions: Transaction[];
   weeklyActivity: WeeklyActivity;
-  expenseStatistics: ExpenseStatistic[]
-  contacts: Contact[]
+  expenseStatistics: ExpenseStatistic[];
+  contacts: Contact[];
+  balanceHistory: BalanceHistory;
 }
 
 export enum SoarCardType {
@@ -50,4 +51,9 @@ export type Contact = {
   title: string;
   avatarURL: string;
 } 
+
+export interface BalanceHistory {
+  labels: string[];
+  amounts: number[];
+}
 
