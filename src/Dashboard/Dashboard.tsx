@@ -78,7 +78,7 @@ function Dashboard() {
 
         <section className='sm:min-w-[21.875rem]'>
         <h2 className="text-lg font-semibold text-soar">{t('expenseStatistics.title')}</h2>
-        <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center">
+        <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center sm:h-[20.125rem] sm:max-h-[20.125rem]">
           {/* <ExpenseStatistics data={expenseStatistics} /> */}
           <SlicedPieChart data={expenseStatistics} />
         </div>

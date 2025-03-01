@@ -93,7 +93,7 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
     labels,
     datasets: [
       {
-        label: t('weeklyActivity.withdrawals'),
+        label: t('weeklyActivity.withdrawal'),
         data: data.withdrawals,
         backgroundColor: designSystem.colors['active'],
         borderRadius: {
@@ -106,7 +106,7 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
         barThickness: isMobile ? 12 : 14
       },
       {
-        label: t('weeklyActivity.deposits'),
+        label: t('weeklyActivity.deposit'),
         data: data.deposits,
         backgroundColor: designSystem.colors['soar-blue'],
         borderRadius: {

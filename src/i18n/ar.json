@@ -17,8 +17,8 @@
   },
   "weeklyActivity": {
     "title": "النشاط الأسبوعي",
-    "deposits": "الودائع",
-    "withdrawals": "عمليات السحب"
+    "deposit": "إيداع",
+    "withdrawal": "انسحاب"
   },
   "expenseStatistics": {
     "title": "إحصائيات المصروفات"

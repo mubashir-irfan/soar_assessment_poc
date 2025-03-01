@@ -17,8 +17,8 @@
   },
   "weeklyActivity": {
     "title": "Weekly Activity",
-    "deposits": "Deposits",
-    "withdrawals": "Withdrawals"
+    "deposit": "Deposit",
+    "withdrawal": "Withdrawal"
   },
   "expenseStatistics": {
     "title": "Expense statistics"
