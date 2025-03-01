@@ -27,15 +27,6 @@ let mockUserData: User = {
       logo: '/visa.svg',
       type: SoarCardType.SOAR_STANDARD,
     },
-    {
-      cardNumber: '3778 **** **** 1234',
-      validThru: '01/25',
-      vendor: CardVendor.MASTERCARD,
-      balance: 5756,
-      cardHolder: 'Jane Smith',
-      logo: '/mastercard.svg',
-      type: SoarCardType.SOAR_PREMIUM,
-    },
   ],
   latestTransactions: [
     {
@@ -74,6 +65,11 @@ let mockUserData: User = {
       label: 'Withdrawal from PayPal',
     },
   ],
+  weeklyActivity: {
+    labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+    deposits: [220, 110, 220, 370, 220, 220, 600],
+    withdrawals: [490, 330, 320, 490, 120, 390, 400],
+  },
 };
 
 export const mockDataService = {
@@ -82,6 +78,9 @@ export const mockDataService = {
   },
   getTransactions: (): Promise<Transaction[]> => {
     return delayedPromise(mockUserData.latestTransactions);
+  },
+  getWeeklyActivity: () => {
+    return delayedPromise(mockUserData.weeklyActivity);
   },
 };
 

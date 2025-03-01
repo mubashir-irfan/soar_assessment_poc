@@ -15,6 +15,11 @@
     "depositPaypal": "Deposit from PayPal",
     "contactFrom": "Deposit from {{name}}"
   },
+  "weeklyActivity": {
+    "title": "Weekly Activity",
+    "deposits": "Deposits",
+    "withdrawals": "Withdrawals"
+  },
   "settings": {
     "settings": "Settings",
     "editProfile": {

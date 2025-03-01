@@ -45,7 +45,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </h1>
         </header>
         <main className="flex-grow">
-          <div className='container mx-auto max-w-[100vw] sm:max-w-[calc(100vw-15.625rem)] p-4 bg-background-light h-full' >
+          <div className='container mx-auto max-w-[100vw] sm:max-w-[calc(100vw-15.625rem)] p-4 md:px-8 bg-background-light h-full' >
             {children}
           </div>
         </main>

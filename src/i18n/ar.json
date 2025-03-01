@@ -15,6 +15,11 @@
     "depositPaypal": "إيداع من باي بال",
     "contactFrom": "إيداع من {{name}}"
   },
+  "weeklyActivity": {
+    "title": "النشاط الأسبوعي",
+    "deposits": "الودائع",
+    "withdrawals": "عمليات السحب"
+  },
   "settings": {
     "settings": "الإعدادات",
     "editProfile": {
