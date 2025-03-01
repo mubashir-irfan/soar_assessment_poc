@@ -28,7 +28,7 @@ function Dashboard() {
   return (
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
       {/* First row: Cards and Recent Transactions */}
-      <div className="grid grid-cols-1 sm:grid-cols-[2fr,1fr] gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
         {/* Cards Section */}
         {!!cards.length && (
           <section className="overflow-x-auto max-w-full">
@@ -49,7 +49,7 @@ function Dashboard() {
         {/* Recent Transactions Section */}
         <section className="">
           <h2 className="text-soar text-lg font-semibold">{t('dashboard.recentTransactions')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 max-h-[13.375rem] sm:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 max-h-[13.375rem] lg:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
             {transactions.map((transaction, index) => (
               <TransactionEntry
                 key={index}
@@ -64,10 +64,10 @@ function Dashboard() {
       </div>
 
       {/* Second row: Weekly Activity and Expense Statistics */}
-      <div className="grid grid-cols-1 sm:grid-cols-[2fr,1fr] gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
         <section className="max-w-full">
           <h2 className="text-soar text-lg font-semibold">{t('weeklyActivity.title')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] sm:h-[20.125rem] sm:max-h-[20.125rem] max-w-full">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] lg:h-[20.125rem] lg:max-h-[20.125rem] max-w-full">
             {weeklyActivity ? (
               <div className="h-full">
                 <WeeklyActivitBarChart data={weeklyActivity} />
@@ -80,25 +80,25 @@ function Dashboard() {
 
         <section className="max-w-full">
           <h2 className="text-lg font-semibold text-soar">{t('expenseStatistics.title')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center sm:h-[20.125rem] sm:max-h-[20.125rem] max-w-full">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center lg:h-[20.125rem] lg:max-h-[20.125rem] max-w-full">
             <SlicedPieChart data={expenseStatistics} />
           </div>
         </section>
       </div>
 
       {/* Third row: Quick Send and Balance History (Flexbox) */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <div className="rounded-[1.5rem]">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
-          <div className='mt-4 h-[14rem] sm:h-[17.25rem] bg-white rounded-[1.5rem]'>
+          <div className='mt-4 h-[14rem] lg:h-[17.25rem] bg-white rounded-[1.5rem]'>
             <QuickTransferWidget contacts={contacts} />
           </div>
         </div>
 
 
-        <section className="sm:flex-grow">
+        <section className="lg:flex-grow">
         <h2 className="text-lg font-semibold text-soar">Balance History</h2>
-          <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] sm:h-[17.25rem]'>
+          <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] lg:h-[17.25rem]'>
             <BalanceHistoryChart history={balanceHistory} />
           </div>
         </section>

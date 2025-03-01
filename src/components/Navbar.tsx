@@ -101,7 +101,7 @@ function Navbar() {
                 isActive(item.path) ? 'text-active' : 'text-inactive'
               } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
-              <div className="flex items-center gap-[1.625rem] pl-5">
+              <div className="flex items-center gap-[1.625rem] ps-5">
                 {item.icon}
                 <span>{t(item.label)}</span>
               </div>
