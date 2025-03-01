@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
-import { BankingCard, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
+import { BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
 import WeeklyActivitBarChart from './WeeklyActivityBarChart';
+import QuickTransferWidget from './QuickTransferWidget';
 
 function Dashboard() {
   const { t } = useTranslation();
@@ -11,13 +12,14 @@ function Dashboard() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity>();
   const [expenseStatistics, setExpenseStatistics] = useState<ExpenseStatistic[]>([]);
-  const colors = ['#343C6A', '#FC7900', '#232323', '#396AFF'];
+  const [contacts, setContacts] = useState<Contact[]>([]);
 
   useEffect(() => {
     mockDataService.getBankingCards().then(setCards);
     mockDataService.getTransactions().then(setTransactions);
     mockDataService.getWeeklyActivity().then(setWeeklyActivity);
     mockDataService.getExpenseStatistics().then(setExpenseStatistics);
+    mockDataService.getContacts().then(setContacts);
   }, []);
 
   return (
@@ -78,21 +80,22 @@ function Dashboard() {
         <section className="sm:min-w-[21.875rem]">
           <h2 className="text-lg font-semibold text-soar">{t('expenseStatistics.title')}</h2>
           <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center sm:h-[20.125rem] sm:max-h-[20.125rem]">
-            <SlicedPieChart data={expenseStatistics}/>
+            <SlicedPieChart data={expenseStatistics} />
           </div>
         </section>
       </div>
 
       {/* Third row: Quick Send and Balance History (Flexbox) */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col sm:flex-row gap-8 sm:gap-[30px]">
         {/* Quick Send Section */}
-        <section className="sm:flex-1/3 p-4 bg-white rounded-[1.5rem]">
-          <h2>Quick Send</h2>
-          {/* Add your Quick Send content here */}
+        <section className="w-full sm:w-[40%] rounded-[1.5rem]">
+          <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
+          <div className='mt-4'><QuickTransferWidget contacts={contacts} />
+          </div>
         </section>
 
         {/* Balance History Chart */}
-        <section className="sm:flex-2/3 p-4 bg-white rounded-[1.5rem]">
+        <section className="w-full sm:w-[60%] p-4 bg-white rounded-[1.5rem]">
           <h2>Balance History</h2>
           {/* Add your Balance History chart here */}
         </section>

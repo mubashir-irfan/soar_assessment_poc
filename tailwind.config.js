@@ -26,5 +26,13 @@ module.exports = {
         },
       });
     },
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scroll-smooth': {
+          'scroll-behavior': 'smooth',
+        },
+      });
+    },
   ],
 };
+

@@ -4,6 +4,7 @@ export interface User {
   latestTransactions: Transaction[];
   weeklyActivity: WeeklyActivity;
   expenseStatistics: ExpenseStatistic[]
+  contacts: Contact[]
 }
 
 export enum SoarCardType {
@@ -43,4 +44,10 @@ export interface ExpenseStatistic {
   value: number;
 }
 
+export type Contact = {
+  id: number
+  name: string;
+  title: string;
+  avatarURL: string;
+} 
 

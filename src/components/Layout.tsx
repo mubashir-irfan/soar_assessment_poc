@@ -31,7 +31,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div dir={dir} className="min-h-[100vh] flex">
-      <div className="hidden sm:block w-[15.625rem] bg-background-white">
+      <div className="hidden sm:block w-[13rem] bg-background-white">
         <Navbar />
       </div>
 
@@ -45,7 +45,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </h1>
         </header>
         <main className="flex-grow overflow-y-auto">
-          <div className='container mx-auto max-w-[100vw] sm:max-w-[calc(100vw-15.625rem)] p-4 md:px-8 bg-background-light h-full' >
+          <div className='container mx-auto max-w-[100vw] sm:max-w-[calc(100vw-13rem)] overflow-y-auto p-4 md:px-8 bg-background-light h-full' >
             {children}
           </div>
         </main>

@@ -24,7 +24,7 @@ function Navbar() {
   return (
     <nav
       aria-label="Main Navigation"
-      className="flex flex-col h-screen border-e border-border-light dark:border-border-dark w-[15.625rem] bg-background-white"
+      className="flex flex-col h-screen border-e border-border-light dark:border-border-dark bg-background-white"
     >
       <div className="flex items-center p-4">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
@@ -36,7 +36,7 @@ function Navbar() {
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
-              className={`w-full flex items-center gap-[1.625rem] font-[500] text-[1.125rem] ${isActive(item.path) ? 'text-active' : 'text-inactive'
+              className={`w-full flex items-center gap-[1.625rem] font-[500] ${isActive(item.path) ? 'text-active' : 'text-inactive'
                 } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] pl-5">

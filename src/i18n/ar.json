@@ -23,6 +23,14 @@
   "expenseStatistics": {
     "title": "إحصائيات المصروفات"
   },
+  "quickTransfer": {
+    "title": "تحويل سريع",
+    "writeAmount": "أدخل المبلغ",
+    "send": "إرسال",
+    "scrollContacts": "تمرير جهات الاتصال إلى اليمين",
+    "enterAmount": "أدخل مبلغ الإرسال",
+    "sending": "جاري الإرسال\u200F..."
+  },
   "settings": {
     "settings": "الإعدادات",
     "editProfile": {

@@ -4,6 +4,7 @@ import {
   SoarCardType,
   Transaction,
   User,
+  Contact
 } from '../types';
 
 let mockUserData: User = {
@@ -17,15 +18,6 @@ let mockUserData: User = {
       cardHolder: 'Jane Smith',
       logo: '/mastercard.svg',
       type: SoarCardType.SOAR_PREMIUM,
-    },
-    {
-      cardNumber: '1234 **** **** 3778',
-      validThru: '12/24',
-      vendor: CardVendor.VISA,
-      balance: 5756,
-      cardHolder: 'John Doe',
-      logo: '/visa.svg',
-      type: SoarCardType.SOAR_STANDARD,
     },
     {
       cardNumber: '1234 **** **** 3778',
@@ -85,6 +77,50 @@ let mockUserData: User = {
     { label: 'Others', value: 35 },
     { label: 'Investment', value: 20 },
   ],
+  contacts: [
+    {
+      id: 1,
+      name: 'Ethan Ramirez',
+      title: 'Senior Developer',
+      avatarURL: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 2,
+      name: 'Sophia Chen',
+      title: 'Marketing Manager',
+      avatarURL: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 3,
+      name: 'Liam Patel',
+      title: 'UX/UI Designer',
+      avatarURL: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 4,
+      name: 'Olivia Kim',
+      title: 'Product Manager',
+      avatarURL: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 5,
+      name: 'Noah Rodriguez',
+      title: 'Finance Analyst',
+      avatarURL: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 6,
+      name: 'Ava Martinez',
+      title: 'HR Specialist',
+      avatarURL: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+      id: 7,
+      name: 'Lucas Garcia',
+      title: 'Sales Representative',
+      avatarURL: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+  ],
 };
 
 export const mockDataService = {
@@ -99,6 +135,9 @@ export const mockDataService = {
   },
   getExpenseStatistics: () => {
     return delayedPromise(mockUserData.expenseStatistics);
+  },
+  getContacts: () => {
+    return delayedPromise(mockUserData.contacts);
   },
 };
 

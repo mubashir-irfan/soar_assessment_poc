@@ -23,6 +23,14 @@
   "expenseStatistics": {
     "title": "Expense statistics"
   },
+  "quickTransfer": {
+    "title": "Quick Transfer",
+    "writeAmount": "Write Amount",
+    "send": "Send",
+    "scrollContacts": "Scroll Contacts Right",
+    "enterAmount": "Enter Amount to Send",
+    "sending": "Sending..."
+  },
   "settings": {
     "settings": "Settings",
     "editProfile": {
