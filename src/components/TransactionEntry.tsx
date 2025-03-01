@@ -48,7 +48,7 @@ function TransactionEntry({ date, label, amount, type }: TransactionEntryProps) 
         className="w-[3.4375rem] h-[3.4375rem] sm:w-[3.125rem] sm:h-[3.125rem] rounded-full flex items-center justify-center"
         style={{ backgroundColor: getCircleColor() }}
       >
-        <div className="w-[1.75rem] h-[1.75rem] sm:w-[1.5625rem] sm:h-[1.5625rem] flex items-center justify-center">
+        <div className="w-5 h-5 sm:w-7 sm:h-7 flex items-center justify-center">
           {getIcon()}
         </div>
       </div>

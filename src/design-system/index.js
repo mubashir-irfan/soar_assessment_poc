@@ -5,6 +5,7 @@ module.exports = {
     soar: '#343C6A',
     active: '#232323',
     inactive: '#B1B1B1',
+    'soar-blue': '#396AFF',
     background: {
       light: '#F6F7FA',
       white: '#FFFFFF',

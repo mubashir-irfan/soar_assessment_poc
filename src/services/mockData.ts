@@ -27,6 +27,15 @@ let mockUserData: User = {
       logo: '/visa.svg',
       type: SoarCardType.SOAR_STANDARD,
     },
+    {
+      cardNumber: '3778 **** **** 1234',
+      validThru: '01/25',
+      vendor: CardVendor.MASTERCARD,
+      balance: 5756,
+      cardHolder: 'Jane Smith',
+      logo: '/mastercard.svg',
+      type: SoarCardType.SOAR_PREMIUM,
+    },
   ],
   latestTransactions: [
     {
