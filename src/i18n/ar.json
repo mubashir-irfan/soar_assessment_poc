@@ -1,4 +1,16 @@
 {
+  "navbar": {
+     "soarTask": "Soar مهمة",
+    "dashboard": "لوحة التحكم",
+    "transactions": "المعاملات",
+    "accounts": "الحسابات",
+    "investments": "الاستثمارات",
+    "creditCards": "بطاقات الائتمان",
+    "loans": "القروض",
+    "services": "الخدمات",
+    "myPrivileges": "امتيازاتي",
+    "settings": "الإعدادات"
+  },
   "dashboard": {
     "overview": "نظرة عامة",
     "myCards": "بطاقاتي",
@@ -47,10 +59,5 @@
   "common": {
     "loading": "جارٍ التحميل...",
     "error": "خطأ: {{message}}"
-  },
-  "navbar": {
-    "dashboard": "لوحة التحكم",
-    "settings": "الإعدادات",
-    "soarTask": "Soar مهمة"
   }
 }

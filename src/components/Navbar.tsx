@@ -1,5 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { FaClipboardCheck } from 'react-icons/fa6';
+import {
+  FaClipboardCheck,
+  FaMoneyBillTransfer,
+  FaBuildingColumns,
+  FaChartLine,
+  FaCreditCard,
+  FaHandHolding,
+  FaGift,
+} from 'react-icons/fa6';
+import { FaTools } from "react-icons/fa";
 import { IoIosSettings, IoMdHome } from 'react-icons/io';
 import { Link, useLocation } from 'react-router-dom';
 import designSystem from '../design-system';
@@ -10,8 +19,60 @@ function Navbar() {
   const { t } = useTranslation();
 
   const navItems = [
-    { path: '/', label: 'navbar.dashboard', icon: <IoMdHome size={25} aria-hidden="true" />, ariaLabel: 'Dashboard' },
-    { path: '/settings', label: 'navbar.settings', icon: <IoIosSettings size={25} aria-hidden="true" />, ariaLabel: 'Settings' },
+    {
+      path: '/',
+      label: 'navbar.dashboard',
+      icon: <IoMdHome size={25} aria-hidden="true" />,
+      ariaLabel: 'Dashboard',
+    },
+    {
+      path: '/transactions',
+      label: 'navbar.transactions',
+      icon: <FaMoneyBillTransfer size={25} aria-hidden="true" />,
+      ariaLabel: 'Transactions',
+    },
+    {
+      path: '/accounts',
+      label: 'navbar.accounts',
+      icon: <FaBuildingColumns size={25} aria-hidden="true" />,
+      ariaLabel: 'Accounts',
+    },
+    {
+      path: '/investments',
+      label: 'navbar.investments',
+      icon: <FaChartLine size={25} aria-hidden="true" />,
+      ariaLabel: 'Investments',
+    },
+    {
+      path: '/credit-cards',
+      label: 'navbar.creditCards',
+      icon: <FaCreditCard size={25} aria-hidden="true" />,
+      ariaLabel: 'Credit Cards',
+    },
+    {
+      path: '/loans',
+      label: 'navbar.loans',
+      icon: <FaHandHolding size={25} aria-hidden="true" />,
+      ariaLabel: 'Loans',
+    },
+    {
+      path: '/services',
+      label: 'navbar.services',
+      icon: <FaTools size={25} aria-hidden="true" />,
+      ariaLabel: 'Services',
+    },
+    {
+      path: '/my-privileges',
+      label: 'navbar.myPrivileges',
+      icon: <FaGift size={25} aria-hidden="true" />,
+      ariaLabel: 'My Privileges',
+    },
+    {
+      path: '/settings',
+      label: 'navbar.settings',
+      icon: <IoIosSettings size={25} aria-hidden="true" />,
+      ariaLabel: 'Settings',
+    },
   ];
 
   const isActive = (path: string): boolean => {
@@ -36,8 +97,9 @@ function Navbar() {
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
-              className={`w-full flex items-center gap-[1.625rem] font-[500] ${isActive(item.path) ? 'text-active' : 'text-inactive'
-                } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
+              className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${
+                isActive(item.path) ? 'text-active' : 'text-inactive'
+              } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] pl-5">
                 {item.icon}

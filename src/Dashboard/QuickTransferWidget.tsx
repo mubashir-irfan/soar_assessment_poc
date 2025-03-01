@@ -118,7 +118,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
 
       {/* Amount Section */}
       <section aria-label="Amount Transfer">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 max-w-[24rem] mx-auto">
           <label
             htmlFor="amountInput"
             className="text-text-secondary text-[16px] sm:text-[12px] font-normal me-2"

@@ -1,4 +1,16 @@
 {
+  "navbar": {
+     "soarTask": "Soar Task",
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "accounts": "Accounts",
+    "investments": "Investments",
+    "creditCards": "Credit Cards",
+    "loans": "Loans",
+    "services": "Services",
+    "myPrivileges": "My Privileges",
+    "settings": "Settings"
+  },
   "dashboard": {
     "overview": "Overview",
     "myCards": "My Cards",
@@ -47,10 +59,5 @@
   "common": {
     "loading": "Loading...",
     "error": "Error: {{message}}"
-  },
-  "navbar": {
-    "dashboard": "Dashboard",
-    "settings": "Settings",
-    "soarTask": "Soar Task"
   }
 }
