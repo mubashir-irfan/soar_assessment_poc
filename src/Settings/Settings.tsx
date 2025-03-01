@@ -1,8 +1,9 @@
 import React from 'react';
 import { useI18n } from '../context/I18nContext';
+import { useTranslation } from 'react-i18next';
 
 function Settings() {
-  const { i18n } = useI18n();
+  const { i18n } = useTranslation();
 
   return (
     <div className="p-4">

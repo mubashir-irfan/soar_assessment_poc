@@ -68,7 +68,7 @@ function Card({ card }: CardProps) {
             </div>
           </div>
           <div
-            className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] ${
+            className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] me-3 ${
               isPremium ? 'text-white' : 'text-active'
             }`}
           >
