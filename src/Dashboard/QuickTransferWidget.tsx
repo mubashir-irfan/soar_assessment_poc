@@ -10,12 +10,14 @@ interface QuickTransferWidgetProps {
 }
 
 function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const contactListRef = useRef<HTMLDivElement>(null);
   const amountInputRef = useRef<HTMLInputElement>(null);
   const [isSending, setIsSending] = useState(false);
+
+  const isRTL = i18n.dir() === 'rtl';
 
   const handleContactClick = (contact: Contact) => {
     setSelectedContact(contact);
@@ -24,8 +26,14 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   const handleScrollRight = () => {
     if (contactListRef.current) {
       const scrollAmount = contactListRef.current.offsetWidth;
-      contactListRef.current.scrollLeft += scrollAmount;
-      setScrollPosition(contactListRef.current.scrollLeft);
+      const newScrollPosition = isRTL
+        ? contactListRef.current.scrollLeft - scrollAmount
+        : contactListRef.current.scrollLeft + scrollAmount;
+      contactListRef.current.scroll({
+        left: newScrollPosition,
+        behavior: 'smooth',
+      });
+      setScrollPosition(newScrollPosition);
     }
   };
 
@@ -36,7 +44,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
         // Logic to send amount
         console.info(`Sending ${amountInputRef.current?.value} to ${selectedContact.name}`);
         // Clear input
-        if (amountInputRef.current) { // Added null check
+        if (amountInputRef.current) {
           amountInputRef.current.value = '';
         }
         setIsSending(false);
@@ -55,12 +63,18 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
       {/* Contacts Section */}
       <section aria-label="Contacts">
         <div className="flex items-center whitespace-nowrap mb-4">
-          <div ref={contactListRef} className="flex flex-grow overflow-x-auto scroll-smooth no-scrollbar" role="listbox" aria-label="Contact List">
+          <div
+            ref={contactListRef}
+            className="flex flex-grow overflow-x-auto scroll-smooth no-scrollbar"
+            role="listbox"
+            aria-label="Contact List"
+          >
             {contacts.map((contact) => (
               <button
                 key={contact.id}
-                className={`flex flex-col items-center me-4 last:me-0 cursor-pointer ${selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                  }`}
+                className={`flex flex-col items-center me-4 last:me-0 cursor-pointer ${
+                  selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
+                }`}
                 onClick={() => handleContactClick(contact)}
                 role="option"
                 aria-selected={selectedContact?.id === contact.id}
@@ -71,14 +85,16 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
                   className="rounded-full w-[70px] h-[70px] sm:w-[50px] sm:h-[50px] object-cover"
                 />
                 <div
-                  className={`text-[16px] sm:text-[12px] text-[#232323] mt-3 ${selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                    }`}
+                  className={`text-[16px] sm:text-[12px] text-[#232323] mt-3 ${
+                    selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
+                  }`}
                 >
                   {contact.name}
                 </div>
                 <div
-                  className={`text-[15px] sm:text-[12px] text-text-secondary ${selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                    }`}
+                  className={`text-[15px] sm:text-[12px] text-text-secondary ${
+                    selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
+                  }`}
                 >
                   {contact.title}
                 </div>
@@ -91,7 +107,11 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               onClick={handleScrollRight}
               aria-label="Scroll Contacts Right"
             >
-              <IoIosArrowForward className="w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary" />
+              <IoIosArrowForward
+                className={`w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary ${
+                  isRTL ? 'rotate-180' : ''
+                }`}
+              />
             </button>
           </div>
         </div>
@@ -100,23 +120,27 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
       {/* Amount Section */}
       <section aria-label="Amount Transfer">
         <div className="flex items-center gap-4">
-          <label htmlFor="amountInput" className="text-text-secondary text-[16px] sm:text-[12px] font-normal me-2">
+          <label
+            htmlFor="amountInput"
+            className="text-text-secondary text-[16px] sm:text-[12px] font-normal me-2"
+          >
             {t('quickTransfer.writeAmount')}
           </label>
           <div className="relative flex-grow">
             <input
               ref={amountInputRef}
-              type="text"
+              type="number"
               id="amountInput"
-              placeholder="Enter Amount"
-              className={`w-full bg-[#EDF1F7] rounded-[50px] p-3 pe-20 text-text-secondary text-[16px] sm:text-[12px] font-normal focus:outline-none focus:ring-2 focus:ring-soar`} // Added focus styles
+              placeholder={t('quickTransfer.enterAmount')}
+              className={`w-full bg-[#EDF1F7] rounded-[50px] p-3 pe-20 text-text-secondary text-[16px] sm:text-[12px] font-normal focus:outline-none focus:ring-2 focus:ring-soar`}
               aria-label="Enter Amount to Send"
             />
             <button
-              className={`absolute end-1 right-0 top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${selectedContact ? '' : 'opacity-50 cursor-not-allowed'
-                } ${isSending ? 'bg-gray-600' : ''}`} // Added visual feedback
+              className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${
+                selectedContact ? '' : 'opacity-50 cursor-not-allowed'
+              } ${isSending ? 'bg-gray-600' : ''}`}
               onClick={handleSend}
-              disabled={!selectedContact || isSending} // Disabled during sending
+              disabled={!selectedContact || isSending}
               aria-label="Send Amount"
             >
               <span className="text-white text-[16px] sm:text-[13px] font-medium me-2">

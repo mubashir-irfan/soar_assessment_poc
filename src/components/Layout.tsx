@@ -35,7 +35,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <Navbar />
       </div>
 
-      <div className="flex-grow flex flex-col bg-background-white max-h-screen max-h-[100vh]">
+      <div className="flex-grow flex flex-col bg-background-white max-h-[100vh]">
         <header className="p-4 flex items-center justify-between sm:justify-start sm:border-b sm:border-border-light dark:border-border-dark sm:border-b-0">
           <div className="sm:hidden">
             <AiOutlineMenu size={18} className="text-soar" />

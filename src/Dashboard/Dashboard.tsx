@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
@@ -28,14 +28,14 @@ function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-[2fr,1fr] gap-4">
         {/* Cards Section */}
         {!!cards.length && (
-          <section className="overflow-x-auto whitespace-nowrap">
+          <section className="overflow-x-auto max-w-full">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg text-soar font-semibold">{t('dashboard.myCards')}</h2>
               <TextButton ariaLabel={t('dashboard.seeAll')}>{t('dashboard.seeAll')}</TextButton>
             </div>
-            <div className="whitespace-nowrap overflow-x-auto max-w-full no-scrollbar">
+            <div className="flex overflow-x-auto max-w-full no-scrollbar">
               {cards.slice(0, 3).map((card, index) => (
-                <div key={index} className="inline-block me-4 last:me-0">
+                <div key={index} className="inline-block me-4 last:me-0 max-w-full">
                   <Card card={card} />
                 </div>
               ))}
@@ -44,9 +44,9 @@ function Dashboard() {
         )}
 
         {/* Recent Transactions Section */}
-        <section className="sm:min-w-[21.875rem]">
+        <section className="max-w-full">
           <h2 className="text-soar text-lg font-semibold">{t('dashboard.recentTransactions')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 max-h-[13.375rem] sm:max-h-[14.6875rem] overflow-y-auto no-scrollbar">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 max-h-[13.375rem] sm:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
             {transactions.map((transaction, index) => (
               <TransactionEntry
                 key={index}
@@ -63,9 +63,9 @@ function Dashboard() {
       {/* Second row: Weekly Activity and Expense Statistics */}
       <div className="grid grid-cols-1 sm:grid-cols-[2fr,1fr] gap-4">
         {/* Weekly Activity Section */}
-        <section className="flex-grow">
+        <section className="max-w-full">
           <h2 className="text-soar text-lg font-semibold">{t('weeklyActivity.title')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] sm:h-[20.125rem] sm:max-h-[20.125rem]">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] sm:h-[20.125rem] sm:max-h-[20.125rem] max-w-full">
             {weeklyActivity ? (
               <div className="h-full">
                 <WeeklyActivitBarChart data={weeklyActivity} />
@@ -77,9 +77,9 @@ function Dashboard() {
         </section>
 
         {/* Expense Statistics Section */}
-        <section className="sm:min-w-[21.875rem]">
+        <section className="max-w-full">
           <h2 className="text-lg font-semibold text-soar">{t('expenseStatistics.title')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center sm:h-[20.125rem] sm:max-h-[20.125rem]">
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center sm:h-[20.125rem] sm:max-h-[20.125rem] max-w-full">
             <SlicedPieChart data={expenseStatistics} />
           </div>
         </section>
@@ -88,16 +88,17 @@ function Dashboard() {
       {/* Third row: Quick Send and Balance History (Flexbox) */}
       <div className="flex flex-col sm:flex-row gap-8 sm:gap-[30px]">
         {/* Quick Send Section */}
-        <section className="w-full sm:w-[40%] rounded-[1.5rem]">
+        <section className="rounded-[1.5rem] max-w-full sm:max-w-[40%]">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
-          <div className='mt-4'><QuickTransferWidget contacts={contacts} />
+          <div className='mt-4 max-w-full'><QuickTransferWidget contacts={contacts} />
           </div>
         </section>
 
         {/* Balance History Chart */}
-        <section className="w-full sm:w-[60%] p-4 bg-white rounded-[1.5rem]">
-          <h2>Balance History</h2>
+        <section className="max-w-full sm:flex-grow">
+        <h2 className="text-lg font-semibold text-soar">Balance History</h2>
           {/* Add your Balance History chart here */}
+          <div className='mt-4 p-4 bg-white rounded-[1.5rem]'></div>
         </section>
       </div>
     </div>
