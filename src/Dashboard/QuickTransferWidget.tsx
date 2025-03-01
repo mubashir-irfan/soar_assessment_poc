@@ -64,7 +64,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
         <div className="flex items-center whitespace-nowrap mb-4">
           <div
             ref={contactListRef}
-            className="flex flex-grow overflow-x-auto scroll-smooth no-scrollbar"
+            className="flex flex-grow overflow-x-auto scroll-smooth no-scrollbar max-w-[25rem]"
             role="listbox"
             aria-label="Contact List"
           >

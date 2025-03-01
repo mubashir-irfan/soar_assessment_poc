@@ -88,12 +88,12 @@ function Dashboard() {
 
       {/* Third row: Quick Send and Balance History (Flexbox) */}
       <div className="flex flex-col sm:flex-row gap-4">
-        <section className="rounded-[1.5rem] sm:w-[40%]">
+        <div className="rounded-[1.5rem]">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
           <div className='mt-4 h-[14rem] sm:h-[17.25rem] bg-white rounded-[1.5rem]'>
-            {/* <QuickTransferWidget contacts={contacts} /> */}
+            <QuickTransferWidget contacts={contacts} />
           </div>
-        </section>
+        </div>
 
 
         <section className="sm:flex-grow max-w-[80%]">
