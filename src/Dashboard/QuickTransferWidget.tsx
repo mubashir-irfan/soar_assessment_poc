@@ -58,7 +58,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   }, [scrollPosition]);
 
   return (
-    <div className="bg-white rounded-[1.5rem] px-3 py-6 sm:px-6 sm:py-9 h-full w-full flex flex-col gap-6 justify-between">
+    <div className="px-3 py-6 sm:px-6 sm:py-9 flex flex-col justify-between gap-6">
       {/* Contacts Section */}
       <section aria-label="Contacts">
         <div className="flex items-center whitespace-nowrap mb-4">

@@ -10,9 +10,9 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
 import { useTranslation } from 'react-i18next';
 import designSystem from '../design-system';
+import { mode } from 'd3';
 
 ChartJS.register(
   CategoryScale,
@@ -28,7 +28,7 @@ ChartJS.register(
 export type AreaChartData = {
   labels: string[];
   values: number[];
-}
+};
 
 interface AreaChartProps {
   data: AreaChartData;
@@ -62,7 +62,7 @@ function AreaChart({ data, lineColor }: AreaChartProps) {
       },
       ticks: {
         stepSize: roundedStepSize,
-        color: 'var(--text-secondary)',
+        color: designSystem.colors.text.secondary,
         font: {
           size: labelFontSize,
         },
@@ -88,31 +88,37 @@ function AreaChart({ data, lineColor }: AreaChartProps) {
           }
 
           const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-          gradient.addColorStop(0, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0.5)`); // #RRGGBB80
-          gradient.addColorStop(1, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0)`); // #RRGGBB00
+          gradient.addColorStop(0, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0.5)`);
+          gradient.addColorStop(1, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0)`);
           return gradient;
         },
         borderColor: lineColor,
         tension: 0.4,
         borderWidth: 3,
+        pointRadius: 0, // Remove points
+        pointHoverRadius: 0, // Remove hover points
       },
     ],
     options: {
       scales: {
-        xAxes: [{
-          gridLines: {
-            borderDash: [8, 4],
-            color: designSystem.colors.border.light,
-          }
-        }],
-        yAxes: [{
-          gridLines: {
-            borderDash: [8, 4],
-            color: designSystem.colors.border.light,
-          }
-        }]
-      }
-    }
+        xAxes: [
+          {
+            gridLines: {
+              borderDash: [8, 4],
+              color: designSystem.colors.border.light,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              borderDash: [8, 4],
+              color: designSystem.colors.border.light,
+            },
+          },
+        ],
+      },
+    },
   };
 
   const options = {
@@ -120,10 +126,11 @@ function AreaChart({ data, lineColor }: AreaChartProps) {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
       tooltip: {
         rtl: isRTL,
+        intersect: false,
       },
     },
     scales: {
