@@ -70,6 +70,12 @@ let mockUserData: User = {
     deposits: [220, 110, 220, 370, 220, 220, 600],
     withdrawals: [490, 330, 320, 490, 120, 390, 400],
   },
+  expenseStatistics: [
+    { label: 'Entertainment', value: 30 },
+    { label: 'Expense', value: 15 },
+    { label: 'Others', value: 35 },
+    { label: 'Investment', value: 20 },
+  ],
 };
 
 export const mockDataService = {
@@ -81,6 +87,9 @@ export const mockDataService = {
   },
   getWeeklyActivity: () => {
     return delayedPromise(mockUserData.weeklyActivity);
+  },
+  getExpenseStatistics: () => {
+    return delayedPromise(mockUserData.expenseStatistics);
   },
 };
 

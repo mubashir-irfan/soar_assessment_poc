@@ -20,6 +20,9 @@
     "deposits": "Deposits",
     "withdrawals": "Withdrawals"
   },
+  "expenseStatistics": {
+    "title": "Expense statistics"
+  },
   "settings": {
     "settings": "Settings",
     "editProfile": {

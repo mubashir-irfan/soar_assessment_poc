@@ -6,3 +6,5 @@ export {default as Card} from './Card';
 export {default as CardChip} from './CardChip';
 export {default as TransactionEntry} from './TransactionEntry';
 export {default as TextButton} from './TextButton';
+export {default as PieChart} from './PieChart';
+export {default as SlicedPieChart} from './SlicedPieChart';

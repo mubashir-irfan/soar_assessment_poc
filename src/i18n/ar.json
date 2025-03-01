@@ -20,6 +20,9 @@
     "deposits": "الودائع",
     "withdrawals": "عمليات السحب"
   },
+  "expenseStatistics": {
+    "title": "إحصائيات المصروفات"
+  },
   "settings": {
     "settings": "الإعدادات",
     "editProfile": {

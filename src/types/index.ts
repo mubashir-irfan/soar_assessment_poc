@@ -2,7 +2,8 @@ export interface User {
   id: number;
   bankingCards: BankingCard[];
   latestTransactions: Transaction[];
-  weeklyActivity: WeeklyActivity
+  weeklyActivity: WeeklyActivity;
+  expenseStatistics: ExpenseStatistic[]
 }
 
 export enum SoarCardType {
@@ -36,4 +37,10 @@ export interface WeeklyActivity {
   deposits: number[];
   withdrawals: number[];
 }
+
+export interface ExpenseStatistic {
+  label: string;
+  value: number;
+}
+
 
