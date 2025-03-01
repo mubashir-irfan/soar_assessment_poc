@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
+import { Card, PieChart, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
 import QuickTransferWidget from './QuickTransferWidget';
@@ -96,7 +96,7 @@ function Dashboard() {
         </div>
 
 
-        <section className="sm:flex-grow max-w-[80%]">
+        <section className="sm:flex-grow">
         <h2 className="text-lg font-semibold text-soar">Balance History</h2>
           <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] sm:h-[17.25rem]'>
             <BalanceHistoryChart history={balanceHistory} />
