@@ -38,12 +38,11 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   };
 
   const handleSend = () => {
+
     if (amountInputRef.current && selectedContact) {
       setIsSending(true);
       setTimeout(() => {
-        // Logic to send amount
         console.info(`Sending ${amountInputRef.current?.value} to ${selectedContact.name}`);
-        // Clear input
         if (amountInputRef.current) {
           amountInputRef.current.value = '';
         }
@@ -137,7 +136,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
             />
             <button
               className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${
-                selectedContact ? '' : 'opacity-50 cursor-not-allowed'
+                (selectedContact) ? '' : 'opacity-50 cursor-not-allowed'
               } ${isSending ? 'bg-gray-600' : ''}`}
               onClick={handleSend}
               disabled={!selectedContact || isSending}
@@ -146,7 +145,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               <span className="text-white text-[16px] sm:text-[13px] font-medium me-2">
                 {isSending ? t('quickTransfer.sending') : t('quickTransfer.send')}
               </span>
-              <IoMdPaperPlane className="w-5 h-5 text-white" />
+              <IoMdPaperPlane className={`w-5 h-5 text-white ${isRTL ? 'scale-x-[-1]' : ''}`} />
             </button>
           </div>
         </div>
