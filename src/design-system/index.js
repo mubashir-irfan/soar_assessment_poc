@@ -18,6 +18,9 @@ module.exports = {
       dark: '#232323',
       error: '#EF4444',
     },
+    controls: {
+      primary: '#232323'
+    },
     border: {
       light: '#DFEAF2',
       dark: '#495057',

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Card, CardChip, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
 import BalanceHistoryChart from './BalanceHistoryChart';
 import QuickTransferWidget from './QuickTransferWidget';
 import WeeklyActivitBarChart from './WeeklyActivityBarChart';
-import { CardsEmpty, CardSkeleton } from '../components/skeletons';
+import { CardsEmpty, CardSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
 
 function Dashboard() {
   const { t } = useTranslation();
@@ -16,23 +16,32 @@ function Dashboard() {
   const [isCardsLoading, setIsCardsLoading] = useState<boolean>(true);
 
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [isTransactionsLoading, setIsTransactionsLoading] = useState<boolean>(true);
+
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity>();
   const [expenseStatistics, setExpenseStatistics] = useState<ExpenseStatistic[]>([]);
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [balanceHistory, setBalanceHistory] = useState<BalanceHistory>();
 
+  // These all would be replaced by useGet wrapping React Query
   useEffect(() => {
     mockDataService.getBankingCards().then((cards: BankingCard[]) => {
       setCards(cards);
       setIsCardsLoading(false);
     });
-    mockDataService.getTransactions().then(setTransactions);
+
+    mockDataService.getTransactions().then((transactions: Transaction[]) => {
+      setTransactions(transactions);
+      setIsTransactionsLoading(false)
+    });
+
     mockDataService.getWeeklyActivity().then(setWeeklyActivity);
     mockDataService.getExpenseStatistics().then(setExpenseStatistics);
     mockDataService.getContacts().then(setContacts);
     mockDataService.getBalanceHistory().then(setBalanceHistory);
   }, []);
 
+  console.log('pre render', transactions)
   return (
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
       {/* First row: Cards and Recent Transactions */}
@@ -44,7 +53,7 @@ function Dashboard() {
               <h2 className="text-lg text-soar font-semibold">{t('dashboard.myCards')}</h2>
               <TextButton ariaLabel={t('dashboard.seeAll')}>{t('dashboard.seeAll')}</TextButton>
             </div>
-            <div className="flex overflow-x-auto max-w-full no-scrollbar-h-[13.375rem] lg:h-[14.6875rem]">
+            <div className="flex overflow-x-auto max-w-full no-scrollbar-h-[13.375rem] lg:h-[14.6875rem] no-scrollbar">
               {!isCardsLoading ?
                 cards.length ?
                   cards.map((card, index) => (
@@ -60,16 +69,24 @@ function Dashboard() {
         {/* Recent Transactions Section */}
         <section className="">
           <h2 className="text-soar text-lg font-semibold">{t('dashboard.recentTransactions')}</h2>
-          <div className="mt-4 bg-white rounded-[1.5rem] p-4 max-h-[13.375rem] lg:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
-            {transactions.map((transaction, index) => (
-              <TransactionEntry
-                key={index}
-                date={transaction.date}
-                label={transaction.label}
-                amount={transaction.amount}
-                type={transaction.type}
-              />
-            ))}
+          <div className="mt-4 bg-white rounded-[1.5rem] p-4 h-[13.375rem] max-h-[13.375rem] lg:h-[14.6875rem] lg:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
+            {
+              !isTransactionsLoading ?
+                transactions.length ? transactions.map((transaction, index) => (
+                  <TransactionEntry
+                    key={index}
+                    date={transaction.date}
+                    label={transaction.label}
+                    amount={transaction.amount}
+                    type={transaction.type}
+                  />
+                )) : <TransactionsEmpty />
+                :<div className='flex flex-col justify-between h-full'>
+                   <TransactionEntrySkeleton />
+                   <TransactionEntrySkeleton />
+                   <TransactionEntrySkeleton />
+                </div>
+            }
           </div>
         </section>
       </div>

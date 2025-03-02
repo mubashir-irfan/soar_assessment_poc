@@ -22,6 +22,11 @@
       "experienceSeamlessTransactions": "Experience Seamless Transactions and Exclusive Benefits.",
       "discoverYourCard": "Discover Your Card Now",
       "cardsWillShowHere": "Get you have an active card, it will show here."
+    },
+    "transactionsEmpty": {
+      "noTransactions": "No Transactions Yet!",
+      "transactionsWillShowHere": "Your latest transactions will list here.",
+      "sendMoney": "Send Money Now"
     }
   },
   "card": {

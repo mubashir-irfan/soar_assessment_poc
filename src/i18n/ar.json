@@ -22,6 +22,11 @@
       "experienceSeamlessTransactions": "استمتع بمعاملات سلسة ومزايا حصرية.",
       "discoverYourCard": "اكتشف بطاقتك الآن",
       "cardsWillShowHere": "عند حصولك على بطاقة نشطة، ستظهر هنا."
+    },
+    "transactionsEmpty": {
+      "noTransactions": "لا توجد معاملات بعد!",
+      "transactionsWillShowHere": "سيتم عرض أحدث معاملاتك هنا.",
+      "sendMoney": "أرسل الأموال الآن"
     }
   },
   "card": {

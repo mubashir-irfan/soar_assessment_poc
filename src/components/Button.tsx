@@ -14,7 +14,7 @@ function Button({ label, onClick, type = 'button', disabled, className }: Button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`bg-active text-text-light py-2 px-12 rounded-lg font-medium transition-colors duration-200 ${
+      className={`bg-controls-primary text-text-light py-2 px-12 rounded-lg font-medium transition-colors duration-200 ${
         disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'
       } ${className}`}
     >
