@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Tabs } from '../components';
-import { useState } from 'react';
 import EditProfile from './EditProfile';
 import Preferences from './Preferences';
 

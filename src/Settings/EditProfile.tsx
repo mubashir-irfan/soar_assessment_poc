@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { UserProfile } from '../types';
 import { FaPencilAlt } from 'react-icons/fa';
-import { FormInput, Button, TextButton } from '../components';
+import { Button, FormInput, TextButton } from '../components';
+import { EditProfileSkeleton } from '../components/skeletons';
 import { mockDataService } from '../services/mockData';
-import { isEmailValid } from '../utils';
+import { UserProfile } from '../types';
 
 function EditProfile() {
   const { t } = useTranslation();
@@ -49,7 +49,7 @@ function EditProfile() {
     setIsEditing(false);
   };
 
-  if (!stagedProfile) return <div>Loading...</div>;
+  if (!stagedProfile) return <EditProfileSkeleton/>
 
   return (
     <form onSubmit={handleSubmit(onValidSubmit)} className="w-full">
