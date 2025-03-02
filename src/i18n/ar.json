@@ -27,7 +27,9 @@
       "noTransactions": "لا توجد معاملات بعد!",
       "transactionsWillShowHere": "سيتم عرض أحدث معاملاتك هنا.",
       "sendMoney": "أرسل الأموال الآن"
-    }
+    },
+    "noWeeklyActivityDataAvailable": "لا توجد بيانات للنشاط الأسبوعي متاحة",
+    "noExpensesStatisticsAvailable": "لا توجد إحصائيات للمصروفات متاحة"
   },
   "card": {
     "balance": "الرصيد",

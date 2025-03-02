@@ -27,7 +27,9 @@
       "noTransactions": "No Transactions Yet!",
       "transactionsWillShowHere": "Your latest transactions will list here.",
       "sendMoney": "Send Money Now"
-    }
+    },
+    "noWeeklyActivityDataAvailable": "No Weekly Activity Data available",
+    "noExpensesStatisticsAvailable": "No Expense Statistcs available"
   },
   "card": {
     "balance": "Balance",
