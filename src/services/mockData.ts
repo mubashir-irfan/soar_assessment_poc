@@ -105,30 +105,6 @@ let mockUserData: User = {
       title: 'UX/UI Designer',
       avatarURL: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
-    {
-      id: 4,
-      name: 'Olivia Kim',
-      title: 'Product Manager',
-      avatarURL: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-    {
-      id: 5,
-      name: 'Noah Rodriguez',
-      title: 'Finance Analyst',
-      avatarURL: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-    {
-      id: 6,
-      name: 'Ava Martinez',
-      title: 'HR Specialist',
-      avatarURL: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-    {
-      id: 7,
-      name: 'Lucas Garcia',
-      title: 'Sales Representative',
-      avatarURL: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
   ],
   balanceHistory: {
     labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],

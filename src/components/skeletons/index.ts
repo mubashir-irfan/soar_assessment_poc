@@ -5,3 +5,4 @@ export { default as TransactionsEmpty } from './TransactionsEmpty';
 export { default as EditProfileSkeleton } from './EditProfileSkeleton';
 export { default as BarChartSkeleton } from './BarChartSkeleton';
 export { default as PieChartSkeleton } from './PieChartSkeleton';
+export { default as QuickTransferWidgetSkeleton } from './QuickTransferWidgetSkeleton';

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
-import { BarChartSkeleton, CardsEmpty, CardSkeleton, PieChartSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
+import { BarChartSkeleton, CardsEmpty, CardSkeleton, PieChartSkeleton, QuickTransferWidgetSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
 import { useGet } from '../shared/hooks/apiQueryHooks';
 import { APIEndpoints } from '../shared/services';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
@@ -20,7 +20,7 @@ function Dashboard() {
 
   const { data: expenseStatistics = [], isLoading: isExpenseStatisticsLoading } = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics())
 
-  const { data: contacts = [] } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())
+  const { data: contacts = [], isLoading: isLoadingContacts } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())
 
   const { data: balanceHistory } = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory())
 
@@ -107,15 +107,21 @@ function Dashboard() {
 
       {/* Third row: Quick Send and Balance History (Flexbox) */}
       <div className="flex flex-col lg:flex-row gap-4">
-        <div className="rounded-[1.5rem]">
+        <div className="">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
-          <div className='mt-4 h-[14rem] max-w-full lg:h-[17.25rem] bg-white rounded-[1.5rem]'>
-            <QuickTransferWidget contacts={contacts} />
+          <div className='mt-4 h-[14rem] max-w-[full] lg:h-[17.25rem] bg-white rounded-[1.5rem]'>
+            {
+              !isLoadingContacts ?
+                !!contacts.length ? <QuickTransferWidget contacts={contacts} /> :
+                  <div className="text-text-secondary mx-auto flex justify-center items-center">{t('dashboard.noExpensesStatisticsAvailable')}</div>
+                :
+                <QuickTransferWidgetSkeleton />
+            }
           </div>
         </div>
 
 
-        <section className="lg:flex-grow">
+        <section className="lg:flex-grow min-w-[60%]">
           <h2 className="text-lg font-semibold text-soar">Balance History</h2>
           <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] lg:h-[17.25rem]'>
             <BalanceHistoryChart history={balanceHistory} />
