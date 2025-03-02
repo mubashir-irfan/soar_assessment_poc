@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
-import { BarChartSkeleton, CardsEmpty, CardSkeleton, PieChartSkeleton, QuickTransferWidgetSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
+import { AreaChartSkeleton, BarChartSkeleton, CardsEmpty, CardSkeleton, PieChartSkeleton, QuickTransferWidgetSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
 import { useGet } from '../shared/hooks/apiQueryHooks';
 import { APIEndpoints } from '../shared/services';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
@@ -22,7 +22,7 @@ function Dashboard() {
 
   const { data: contacts = [], isLoading: isLoadingContacts } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())
 
-  const { data: balanceHistory } = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory())
+  const { data: balanceHistory, isLoading: isLoadingBalanceHistory } = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory())
 
   return (
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
@@ -113,7 +113,7 @@ function Dashboard() {
             {
               !isLoadingContacts ?
                 !!contacts.length ? <QuickTransferWidget contacts={contacts} /> :
-                  <div className="text-text-secondary mx-auto flex justify-center items-center">{t('dashboard.noExpensesStatisticsAvailable')}</div>
+                  <div className="text-text-secondary mx-auto flex justify-center items-center">{t('dashboard.noContactsAvailable')}</div>
                 :
                 <QuickTransferWidgetSkeleton />
             }
@@ -124,7 +124,14 @@ function Dashboard() {
         <section className="lg:flex-grow min-w-[60%]">
           <h2 className="text-lg font-semibold text-soar">Balance History</h2>
           <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] lg:h-[17.25rem]'>
-            <BalanceHistoryChart history={balanceHistory} />
+            {
+              !isLoadingBalanceHistory ?
+                !!balanceHistory ? 
+                // <BalanceHistoryChart history={balanceHistory} />
+                <AreaChartSkeleton />
+                  : <div className="text-text-secondary mx-auto flex justify-center items-center">{t('dashboard.noContactsAvailable')}</div>
+                : <AreaChartSkeleton />
+            }
           </div>
         </section>
       </div>

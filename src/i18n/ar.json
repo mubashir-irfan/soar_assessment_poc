@@ -29,7 +29,8 @@
       "sendMoney": "أرسل الأموال الآن"
     },
     "noWeeklyActivityDataAvailable": "لا توجد بيانات للنشاط الأسبوعي متاحة",
-    "noExpensesStatisticsAvailable": "لا توجد إحصائيات للمصروفات متاحة"
+    "noExpensesStatisticsAvailable": "لا توجد إحصائيات للمصروفات متاحة",
+    "noContactsAvailable": "لا توجد جهات اتصال متاحة"
   },
   "card": {
     "balance": "الرصيد",

@@ -19,7 +19,7 @@ function ThemeSwitcher() {
     <button
       onClick={handleThemeToggle}
       aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-      className="flex items-center justify-center p-2 rounded-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      className="flex items-center justify-center p-2 cursor-pointer rounded-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
     >
       {theme === 'light' ? (
         <MdOutlineDarkMode size={24} />

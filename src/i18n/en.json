@@ -29,7 +29,8 @@
       "sendMoney": "Send Money Now"
     },
     "noWeeklyActivityDataAvailable": "No Weekly Activity Data available",
-    "noExpensesStatisticsAvailable": "No Expense Statistcs available"
+    "noExpensesStatisticsAvailable": "No Expense Statistcs available",
+    "noContactsAvailable": "No contacts available"
   },
   "card": {
     "balance": "Balance",
