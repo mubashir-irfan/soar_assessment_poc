@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
-import { CardsEmpty, CardSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
+import { BarChartSkeleton, CardsEmpty, CardSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
 import { useGet } from '../shared/hooks/apiQueryHooks';
 import { APIEndpoints } from '../shared/services';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
@@ -11,13 +11,13 @@ import WeeklyActivitBarChart from './WeeklyActivityBarChart';
 function Dashboard() {
   const { t } = useTranslation();
 
-  const {data: cards = [], isLoading: isCardsLoading} = useGet<BankingCard[]>(APIEndpoints.cards.getCards(), APIEndpoints.cards.getCards() )
-  const {data: transactions = [], isLoading: isTransactionsLoading} =
-    useGet<Transaction[]>(APIEndpoints.transactions.getRecentTransactions(), APIEndpoints.transactions.getRecentTransactions() )
-  const {data: weeklyActivity} = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity() )
-  const {data: expenseStatistics = []} = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics() )
-  const {data: contacts = []} = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts() )
-  const {data: balanceHistory} = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory() )
+  const { data: cards = [], isLoading: isCardsLoading } = useGet<BankingCard[]>(APIEndpoints.cards.getCards(), APIEndpoints.cards.getCards())
+  const { data: transactions = [], isLoading: isTransactionsLoading } =
+    useGet<Transaction[]>(APIEndpoints.transactions.getRecentTransactions(), APIEndpoints.transactions.getRecentTransactions())
+  const { data: weeklyActivity, isLoading: isWeeklyActivityLoading } = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity())
+  const { data: expenseStatistics = [] } = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics())
+  const { data: contacts = [] } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())
+  const { data: balanceHistory } = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory())
 
   return (
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
@@ -58,10 +58,10 @@ function Dashboard() {
                     type={transaction.type}
                   />
                 )) : <TransactionsEmpty />
-                :<div className='flex flex-col justify-between h-full'>
-                   <TransactionEntrySkeleton />
-                   <TransactionEntrySkeleton />
-                   <TransactionEntrySkeleton />
+                : <div className='flex flex-col justify-between h-full'>
+                  <TransactionEntrySkeleton />
+                  <TransactionEntrySkeleton />
+                  <TransactionEntrySkeleton />
                 </div>
             }
           </div>
@@ -73,13 +73,17 @@ function Dashboard() {
         <section className="max-w-full">
           <h2 className="text-soar text-lg font-semibold">{t('weeklyActivity.title')}</h2>
           <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] lg:h-[20.125rem] lg:max-h-[20.125rem] max-w-full">
-            {weeklyActivity ? (
-              <div className="h-full">
-                <WeeklyActivitBarChart data={weeklyActivity} />
-              </div>
-            ) : (
-              <div className="text-text-secondary mx-auto">No Weekly Data available.</div>
-            )}
+            {
+              !isWeeklyActivityLoading ?
+                weeklyActivity ? (
+                  <div className="h-full">
+                    <WeeklyActivitBarChart data={weeklyActivity} />
+                  </div>
+                ) : (
+                  <div className="text-text-secondary mx-auto">No Weekly Activity Data available.</div>
+                )
+                : <BarChartSkeleton />
+            }
           </div>
         </section>
 
