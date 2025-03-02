@@ -8,27 +8,28 @@ import { mockDataService } from '../services/mockData';
 import { UserProfile } from '../types';
 
 type HeaderProps = {
-    title: string;
-    setIsMenuOpen: (isOpen: boolean) => void;
-  }
-  
-  const Header = ({ title, setIsMenuOpen }: HeaderProps) => {
-    const {t} = useTranslation();
-    const [userProfile, setUserProfile] = useState<UserProfile>()
-  
-    useEffect(() => {
-      mockDataService.getUserProfile().then(setUserProfile)
-    }, [])
-  
-    return (
-      <header className="md:h-[6.25rem] px-4 py-2 flex items-center justify-between lg:justify-start lg:border-b lg:border-border-light dark:border-border-dark border-solid">
+  title: string;
+  setIsMenuOpen: (isOpen: boolean) => void;
+}
+
+const Header = ({ title, setIsMenuOpen }: HeaderProps) => {
+  const { t } = useTranslation();
+  const [userProfile, setUserProfile] = useState<UserProfile>()
+
+  useEffect(() => {
+    mockDataService.getUserProfile().then(setUserProfile)
+  }, [])
+
+  return (
+    <header className="h-[6.8125rem] md:h-[6.25rem] lg:border-b lg:border-border-light dark:border-border-dark border-solid">
+      <div className='px-4 py-2 flex items-center justify-between lg:justify-start '>
         <div className="lg:hidden">
           <AiOutlineMenu size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(true)} />
         </div>
         <h1 className="font-[600] sm:text-[1.25rem] md:text-[1.75rem] text-soar lg:ml-4 lg:text-left text-center flex-grow">
           {title}
         </h1>
-  
+
         {!!userProfile ?
           <div className='flex gap-4 items-center'>
             <div className={`hidden md:flex gap-2 justify-center items-center px-4 py-3 bg-background-secondary text-text-secondary rounded-[2.5rem]
@@ -38,7 +39,7 @@ type HeaderProps = {
               <input className='bg-transparent placeholder-text-tertiary focus:outline-none'
                 placeholder={t('navbar.searchForSomething')} />
             </div>
-  
+
             <div className='hidden w-[3.125rem] h-[3.125rem] rounded-full bg-background-secondary text-text-secondary md:flex justify-center items-center cursor-pointer'>
               <IoSettingsOutline size={25} />
             </div>
@@ -51,8 +52,18 @@ type HeaderProps = {
             />
           </div>
           : <></>}
-      </header>
-    )
-  }
+      </div>
 
-  export default Header;
+      <div
+        className={`sm:hidden max-w-[90%] mx-auto mb-2 flex gap-2 justify-center items-center px-4 py-3 bg-background-secondary text-text-secondary rounded-[2.5rem]
+        focus:outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1
+        focus-visible:ring-offset-background-white`}>
+        <HiMagnifyingGlass size={25} />
+        <input className='bg-transparent placeholder-text-tertiary focus:outline-none'
+          placeholder={t('navbar.searchForSomething')} />
+      </div>
+    </header>
+  )
+}
+
+export default Header;
