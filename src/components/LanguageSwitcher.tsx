@@ -1,32 +1,45 @@
 import React from 'react';
+import { Menu } from '@mantine/core';
+import { GrLanguage } from 'react-icons/gr';
 import { useI18n } from '../context/I18nContext';
+import { Button, TextButton } from '../components'
+
+interface Language {
+  code: string;
+  label: string;
+}
 
 function LanguageSwitcher() {
   const { i18n, changeLanguage } = useI18n();
 
-  const handleLanguageChange = (lang: string) => {
-    changeLanguage(lang);
-  };
+  const languages: Language[] = [
+    { code: 'en', label: 'English' },
+    { code: 'ar', label: 'العربية' }
+  ];
 
   return (
-    <div className="flex space-x-2 text-sm">
-      <button
-        onClick={() => handleLanguageChange('en')}
-        className={`px-2 py-1 rounded ${
-          i18n.language === 'en' ? 'bg-gray-200' : 'bg-white'
-        }`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => handleLanguageChange('ar')}
-        className={`px-2 py-1 rounded ${
-          i18n.language === 'ar' ? 'bg-gray-200' : 'bg-white'
-        }`}
-      >
-        AR
-      </button>
-    </div>
+    <Menu shadow="md" width={150}>
+      <Menu.Target>
+        <button>
+          <div className='flex gap-2 items-center text-sm'>
+            <GrLanguage size={16} />
+            {languages.find(lang => lang.code === i18n.language)?.label || 'Language'}
+          </div>
+        </button>
+      </Menu.Target>
+
+      <Menu.Dropdown>
+        {languages.map(({ code, label }) => (
+          <Menu.Item
+            key={code}
+            onClick={() => changeLanguage(code)}
+            style={{ fontWeight: i18n.language === code ? 'bold' : 'normal' }}
+          >
+            {label}
+          </Menu.Item>
+        ))}
+      </Menu.Dropdown>
+    </Menu>
   );
 }
 

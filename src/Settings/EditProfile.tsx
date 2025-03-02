@@ -3,9 +3,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { UserProfile } from '../types';
 import { FaPencilAlt } from 'react-icons/fa';
-import { FormInput, Button } from '../components';
+import { FormInput, Button, TextButton } from '../components';
 import { mockDataService } from '../services/mockData';
-import { required, validEmail } from '../utils';
+import { isEmailValid } from '../utils';
 
 function EditProfile() {
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ function EditProfile() {
   if (!stagedProfile) return <div>Loading...</div>;
 
   return (
-    <form onSubmit={handleSubmit(onValidSubmit)} className="w-full no-scrollbar">
+    <form onSubmit={handleSubmit(onValidSubmit)} className="w-full">
       <div className="md:grid md:grid-cols-[20%_80%] items-start">
         <div className="flex flex-col items-center mb-4 md:mb-0">
           <div className="relative">
@@ -73,7 +73,46 @@ function EditProfile() {
               <Controller
                 name={field as keyof UserProfile}
                 control={control}
-                rules={{ required: t(`settings.editProfile.${field}Required`) }}
+                rules={{ required: t(`settings.editProfile.fieldIsRequired`,{name: field}),
+                validate: (val: string | number | undefined) => {
+                  switch (field) {
+                    case 'email':
+                      if (val && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val.toString())) {
+                        return t('common.invalidEmail');
+                      }
+                      break;
+                    case 'password':
+                      if (val) {
+                        const password = val.toString();
+                        const minLength = 8;
+                        const hasUppercase = /[A-Z]/.test(password);
+                        const hasLowercase = /[a-z]/.test(password);
+                        const hasNumber = /[0-9]/.test(password);
+                        const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+              
+                        if (password.length < minLength) {
+                          return t('settings.editProfile.passwordMinLength', { length: minLength });
+                        }
+                        if (!hasUppercase) {
+                          return t('settings.editProfile.passwordUppercase');
+                        }
+                        if (!hasLowercase) {
+                          return t('settings.editProfile.passwordLowercase');
+                        }
+                        if (!hasNumber) {
+                          return t('settings.editProfile.passwordNumber');
+                        }
+                        if (!hasSymbol) {
+                          return t('settings.editProfile.passwordSymbol');
+                        }
+                      }
+                      break;
+                    default:
+                      break; // No specific validation for other fields
+                  }
+                  return true; // Validation passed
+                },
+              }}
                 render={({ field: controllerField }) => (
                   <FormInput
                     label={t(`settings.editProfile.${field}`)}
@@ -81,6 +120,7 @@ function EditProfile() {
                     type={field === "password" ? "password" : "text"}
                     error={errors[field as keyof UserProfile]?.message}
                     readOnly={!isEditing}
+                    
                     {...controllerField}
                   />
                 )}
@@ -107,9 +147,9 @@ function EditProfile() {
       </div>
       <div className="mt-4 md:text-right">
         {isEditing ? (
-          <div className='ms-auto w-full md:w-fit flex flex-col-reverse md:flex-row gap-2'>
-            <button type="button" onClick={handleCancel} className="ml-2">Cancel</button>
-            <Button label={t('settings.editProfile.save')} type='submit' />
+          <div className='ms-auto w-full md:w-fit flex flex-col-reverse md:flex-row gap-2 md:gap-4 items-end items-center'>
+            <TextButton onClick={handleCancel}>Cancel</TextButton>
+            <Button label={t('settings.editProfile.save')} type='submit' className='w-full md:w-fit' />
           </div>
         ) : (
           <Button label="Edit" className='w-full md:w-fit' onClick={handleEdit} />

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Tabs } from '../components';
 import { useState } from 'react';
 import EditProfile from './EditProfile';
+import Preferences from './Preferences';
 
 function Settings() {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ function Settings() {
      <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="mt-4 p-4">
         {activeTab === 'editProfile' && <div><EditProfile/></div>}
-        {activeTab === 'preferences' && <div>{t('settings.preferences.title')}</div>}
+        {activeTab === 'preferences' && <div><Preferences/></div>}
         {activeTab === 'security' && <div>{t('settings.security.title')}</div>}
       </div>
     </div>

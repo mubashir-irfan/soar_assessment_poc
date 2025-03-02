@@ -140,7 +140,7 @@ let mockUserData: User = {
     name: 'John Doe',
     userName: 'johndoe123',
     email: 'john.doe@example.com',
-    password: 'password123',
+    password: 'Password@123',
     dateOfBirth: '1990-01-01',
     presentAddress: '123 Main St',
     permanentAddress: '456 Oak Ave',

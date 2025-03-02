@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
+import { FaTools } from "react-icons/fa";
 import {
-  FaClipboardCheck,
-  FaMoneyBillTransfer,
   FaBuildingColumns,
   FaChartLine,
+  FaClipboardCheck,
   FaCreditCard,
-  FaHandHolding,
   FaGift,
+  FaHandHolding,
+  FaMoneyBillTransfer,
 } from 'react-icons/fa6';
-import { FaTools } from "react-icons/fa";
 import { IoIosSettings, IoMdHome } from 'react-icons/io';
 import { Link, useLocation } from 'react-router-dom';
-import designSystem from '../design-system';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 
 function Navbar() {
   const location = useLocation();
@@ -97,9 +97,8 @@ function Navbar() {
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
-              className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${
-                isActive(item.path) ? 'text-active' : 'text-inactive'
-              } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
+              className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${isActive(item.path) ? 'text-active' : 'text-inactive'
+                } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] ps-5">
                 {item.icon}
@@ -115,8 +114,15 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <div className="mt-4">
-        <LanguageSwitcher />
+      <div className='md:mt-auto mb-[4rem] md:mb-0'>
+        <div className='flex md:flex-row md:justify-between items-center gap-4 p-4 '>
+          <div className='flex flex-col gap-2'>
+            <LanguageSwitcher />
+          </div>
+          <div className='flex flex-col gap-2'>
+            <ThemeSwitcher />
+          </div>
+        </div>
       </div>
     </nav>
   );

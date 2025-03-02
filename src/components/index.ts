@@ -12,3 +12,4 @@ export {default as AreaChart} from './AreaChart';
 export {default as Tabs} from './Tabs';
 export {default as FormInput} from './FormInput';
 export {default as Button} from './Button';
+export {default as ThemeSwitcher} from './ThemeSwitcher';

@@ -16,4 +16,4 @@ export function formatCurrency(amount: number): string {
   }).format(amount);
 }
 
-export {required, validEmail} from './validators'
+export {required, isEmailValid} from './validators'

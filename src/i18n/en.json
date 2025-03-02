@@ -1,6 +1,6 @@
 {
   "navbar": {
-     "soarTask": "Soar Task",
+    "soarTask": "Soar Task",
     "dashboard": "Dashboard",
     "transactions": "Transactions",
     "accounts": "Accounts",
@@ -15,7 +15,7 @@
     "overview": "Overview",
     "myCards": "My Cards",
     "seeAll": "See All",
-     "recentTransactions": "Recent Transactions"
+    "recentTransactions": "Recent Transactions"
   },
   "card": {
     "balance": "Balance",
@@ -61,19 +61,32 @@
       "userNameRequired": "Username is required.",
       "emailInvalid": "Invalid email address.",
       "passwordRequired": "Password is required.",
+      "passwordMinLength": "Password must be at least {{length}} characters long.",
+      "passwordUppercase": "Password must contain an uppercase letter.",
+      "passwordLowercase": "Password must contain a lowercase letter.",
+      "passwordNumber": "Password must contain a number.",
+      "passwordSymbol": "Password must contain a symbol.",
       "save": "Save",
       "edit": "Edit",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "fieldIsRequired": "{{name}} is required"
     },
     "preferences": {
-        "title": "Preferences"
+      "title": "Preferences",
+      "language": "Language",
+      "theme": "Theme",
+      "english": "English",
+      "arabic": "Arabic",
+      "light": "Light",
+      "dark": "Dark"
     },
     "security": {
-        "title": "Security"
+      "title": "Security"
     }
   },
   "common": {
     "loading": "Loading...",
-    "error": "Error: {{message}}"
+    "error": "Error: {{message}}",
+    "invalidEmail": "Email address is invalid"
   }
 }
