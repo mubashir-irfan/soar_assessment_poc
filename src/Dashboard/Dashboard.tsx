@@ -1,47 +1,24 @@
-import { useEffect, useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
-import { Card, CardChip, SlicedPieChart, TextButton, TransactionEntry } from '../components';
-import { mockDataService } from '../services/mockData';
+import { useTranslation } from 'react-i18next';
+import { Card, SlicedPieChart, TextButton, TransactionEntry } from '../components';
+import { CardsEmpty, CardSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
+import { useGet } from '../shared/hooks/apiQueryHooks';
+import { APIEndpoints } from '../shared/services';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
 import BalanceHistoryChart from './BalanceHistoryChart';
 import QuickTransferWidget from './QuickTransferWidget';
 import WeeklyActivitBarChart from './WeeklyActivityBarChart';
-import { CardsEmpty, CardSkeleton, TransactionEntrySkeleton, TransactionsEmpty } from '../components/skeletons';
 
 function Dashboard() {
   const { t } = useTranslation();
 
-  // In actual production, I would use react query. The data and isLoading would come from a single source
-  const [cards, setCards] = useState<BankingCard[]>([]);
-  const [isCardsLoading, setIsCardsLoading] = useState<boolean>(true);
+  const {data: cards = [], isLoading: isCardsLoading} = useGet<BankingCard[]>(APIEndpoints.cards.getCards(), APIEndpoints.cards.getCards() )
+  const {data: transactions = [], isLoading: isTransactionsLoading} =
+    useGet<Transaction[]>(APIEndpoints.transactions.getRecentTransactions(), APIEndpoints.transactions.getRecentTransactions() )
+  const {data: weeklyActivity} = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity() )
+  const {data: expenseStatistics = []} = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics() )
+  const {data: contacts = []} = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts() )
+  const {data: balanceHistory} = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory() )
 
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [isTransactionsLoading, setIsTransactionsLoading] = useState<boolean>(true);
-
-  const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity>();
-  const [expenseStatistics, setExpenseStatistics] = useState<ExpenseStatistic[]>([]);
-  const [contacts, setContacts] = useState<Contact[]>([]);
-  const [balanceHistory, setBalanceHistory] = useState<BalanceHistory>();
-
-  // These all would be replaced by useGet wrapping React Query
-  useEffect(() => {
-    mockDataService.getBankingCards().then((cards: BankingCard[]) => {
-      setCards(cards);
-      setIsCardsLoading(false);
-    });
-
-    mockDataService.getTransactions().then((transactions: Transaction[]) => {
-      setTransactions(transactions);
-      setIsTransactionsLoading(false)
-    });
-
-    mockDataService.getWeeklyActivity().then(setWeeklyActivity);
-    mockDataService.getExpenseStatistics().then(setExpenseStatistics);
-    mockDataService.getContacts().then(setContacts);
-    mockDataService.getBalanceHistory().then(setBalanceHistory);
-  }, []);
-
-  console.log('pre render', transactions)
   return (
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
       {/* First row: Cards and Recent Transactions */}
