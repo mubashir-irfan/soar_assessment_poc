@@ -68,7 +68,7 @@ function Card({ card }: CardProps) {
             </div>
           </div>
           <div
-            className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] ${
+            className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] me-3 ${
               isPremium ? 'text-white' : 'text-active'
             }`}
           >
@@ -116,7 +116,7 @@ function Card({ card }: CardProps) {
         className={`flex justify-between px-[1.25rem] ${
           isPremium ? 'py-[1rem]' : 'py-[0.75rem] sm:py-[0.9375rem]'
         } items-center w-full ${
-          isPremium ? 'bg-white/15' : 'border-t border-border-light'
+          isPremium ? 'bg-white/15' : 'border-t border-border-light border-solid'
         }`}
       >
         <div

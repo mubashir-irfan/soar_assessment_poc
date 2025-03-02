@@ -1,9 +1,36 @@
 {
+  "navbar": {
+    "soarTask": "Soar مهمة",
+    "dashboard": "لوحة التحكم",
+    "transactions": "المعاملات",
+    "accounts": "الحسابات",
+    "investments": "الاستثمارات",
+    "creditCards": "بطاقات الائتمان",
+    "loans": "القروض",
+    "services": "الخدمات",
+    "myPrivileges": "امتيازاتي",
+    "settings": "الإعدادات",
+    "searchForSomething": "ابحث عن"
+  },
   "dashboard": {
     "overview": "نظرة عامة",
     "myCards": "بطاقاتي",
     "seeAll": "عرض الكل",
-     "recentTransactions": "العمليات الأخيرة"
+    "recentTransactions": "العمليات الأخيرة",
+    "emptyCards": {
+      "unlockFinancialFreedom": "أطلق العنان لحريتك المالية!",
+      "experienceSeamlessTransactions": "استمتع بمعاملات سلسة ومزايا حصرية.",
+      "discoverYourCard": "اكتشف بطاقتك الآن",
+      "cardsWillShowHere": "عند حصولك على بطاقة نشطة، ستظهر هنا."
+    },
+    "transactionsEmpty": {
+      "noTransactions": "لا توجد معاملات بعد!",
+      "transactionsWillShowHere": "سيتم عرض أحدث معاملاتك هنا.",
+      "sendMoney": "أرسل الأموال الآن"
+    },
+    "noWeeklyActivityDataAvailable": "لا توجد بيانات للنشاط الأسبوعي متاحة",
+    "noExpensesStatisticsAvailable": "لا توجد إحصائيات للمصروفات متاحة",
+    "noContactsAvailable": "لا توجد جهات اتصال متاحة"
   },
   "card": {
     "balance": "الرصيد",
@@ -15,14 +42,58 @@
     "depositPaypal": "إيداع من باي بال",
     "contactFrom": "إيداع من {{name}}"
   },
+  "weeklyActivity": {
+    "title": "النشاط الأسبوعي",
+    "deposit": "إيداع",
+    "withdrawal": "انسحاب"
+  },
+  "expenseStatistics": {
+    "title": "إحصائيات المصروفات"
+  },
+  "quickTransfer": {
+    "title": "تحويل سريع",
+    "writeAmount": "أدخل المبلغ",
+    "send": "إرسال",
+    "scrollContacts": "تمرير جهات الاتصال إلى اليمين",
+    "enterAmount": "أدخل المبلغ",
+    "sending": "جاري الإرسال\u200F..."
+  },
   "settings": {
     "settings": "الإعدادات",
     "editProfile": {
       "title": "تعديل الملف الشخصي",
-      "saveButton": "حفظ التغييرات"
+      "name": "اسمك",
+      "userName": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "dateOfBirth": "تاريخ الميلاد",
+      "presentAddress": "العنوان الحالي",
+      "permanentAddress": "العنوان الدائم",
+      "city": "المدينة",
+      "postalCode": "الرمز البريدي",
+      "country": "الدولة",
+      "nameRequired": "اسمك مطلوب.",
+      "userNameRequired": "اسم المستخدم مطلوب.",
+      "emailInvalid": "عنوان بريد إلكتروني غير صالح.",
+      "passwordRequired": "كلمة المرور مطلوبة.",
+      "passwordMinLength": "يجب أن تتكون كلمة المرور من {{length}} حرفًا على الأقل.",
+      "passwordUppercase": "يجب أن تحتوي كلمة المرور على حرف كبير.",
+      "passwordLowercase": "يجب أن تحتوي كلمة المرور على حرف صغير.",
+      "passwordNumber": "يجب أن تحتوي كلمة المرور على رقم.",
+      "passwordSymbol": "يجب أن تحتوي كلمة المرور على رمز.",
+      "save": "حفظ",
+      "edit": "تعديل",
+      "cancel": "إلغاء",
+      "fieldIsRequired": "{{name}} مطلوب"
     },
     "preferences": {
-      "title": "التفضيلات"
+      "title": "الإعدادات",
+      "language": "اللغة",
+      "theme": "الوضع",
+      "english": "الإنجليزية",
+      "arabic": "العربية",
+      "light": "فاتح",
+      "dark": "داكن"
     },
     "security": {
       "title": "الأمان"
@@ -30,11 +101,7 @@
   },
   "common": {
     "loading": "جارٍ التحميل...",
-    "error": "خطأ: {{message}}"
-  },
-  "navbar": {
-    "dashboard": "لوحة التحكم",
-    "settings": "الإعدادات",
-    "soarTask": "Soar مهمة"
+    "error": "خطأ: {{message}}",
+    "invalidEmail": "نوان البريد الإلكتروني غير صالح"
   }
 }

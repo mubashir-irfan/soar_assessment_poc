@@ -1,9 +1,36 @@
 {
+  "navbar": {
+    "soarTask": "Soar Task",
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "accounts": "Accounts",
+    "investments": "Investments",
+    "creditCards": "Credit Cards",
+    "loans": "Loans",
+    "services": "Services",
+    "myPrivileges": "My Privileges",
+    "settings": "Settings",
+    "searchForSomething": "Search for something"
+  },
   "dashboard": {
     "overview": "Overview",
     "myCards": "My Cards",
     "seeAll": "See All",
-     "recentTransactions": "Recent Transactions"
+    "recentTransactions": "Recent Transactions",
+    "emptyCards": {
+      "unlockFinancialFreedom": "Unlock Your Financial Freedom!",
+      "experienceSeamlessTransactions": "Experience Seamless Transactions and Exclusive Benefits.",
+      "discoverYourCard": "Discover Your Card Now",
+      "cardsWillShowHere": "Get you have an active card, it will show here."
+    },
+    "transactionsEmpty": {
+      "noTransactions": "No Transactions Yet!",
+      "transactionsWillShowHere": "Your latest transactions will list here.",
+      "sendMoney": "Send Money Now"
+    },
+    "noWeeklyActivityDataAvailable": "No Weekly Activity Data available",
+    "noExpensesStatisticsAvailable": "No Expense Statistcs available",
+    "noContactsAvailable": "No contacts available"
   },
   "card": {
     "balance": "Balance",
@@ -15,26 +42,66 @@
     "depositPaypal": "Deposit from PayPal",
     "contactFrom": "Deposit from {{name}}"
   },
+  "weeklyActivity": {
+    "title": "Weekly Activity",
+    "deposit": "Deposit",
+    "withdrawal": "Withdrawal"
+  },
+  "expenseStatistics": {
+    "title": "Expense statistics"
+  },
+  "quickTransfer": {
+    "title": "Quick Transfer",
+    "writeAmount": "Write Amount",
+    "send": "Send",
+    "scrollContacts": "Scroll Contacts Right",
+    "enterAmount": "Enter Amount",
+    "sending": "Sending..."
+  },
   "settings": {
     "settings": "Settings",
     "editProfile": {
       "title": "Edit Profile",
-      "saveButton": "Save Changes"
+      "name": "Your Name",
+      "userName": "Username",
+      "email": "Email",
+      "password": "Password",
+      "dateOfBirth": "Date of Birth",
+      "presentAddress": "Present Address",
+      "permanentAddress": "Permanent Address",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "country": "Country",
+      "nameRequired": "Your name is required.",
+      "userNameRequired": "Username is required.",
+      "emailInvalid": "Invalid email address.",
+      "passwordRequired": "Password is required.",
+      "passwordMinLength": "Password must be at least {{length}} characters long.",
+      "passwordUppercase": "Password must contain an uppercase letter.",
+      "passwordLowercase": "Password must contain a lowercase letter.",
+      "passwordNumber": "Password must contain a number.",
+      "passwordSymbol": "Password must contain a symbol.",
+      "save": "Save",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "fieldIsRequired": "{{name}} is required"
     },
     "preferences": {
-        "title": "Preferences"
+      "title": "Preferences",
+      "language": "Language",
+      "theme": "Theme",
+      "english": "English",
+      "arabic": "Arabic",
+      "light": "Light",
+      "dark": "Dark"
     },
     "security": {
-        "title": "Security"
+      "title": "Security"
     }
   },
   "common": {
     "loading": "Loading...",
-    "error": "Error: {{message}}"
-  },
-  "navbar": {
-    "dashboard": "Dashboard",
-    "settings": "Settings",
-    "soarTask": "Soar Task"
+    "error": "Error: {{message}}",
+    "invalidEmail": "Email address is invalid"
   }
 }

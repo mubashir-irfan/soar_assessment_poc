@@ -1,18 +1,20 @@
-// src/components/Layout.tsx
-
-import React from 'react';
-import Navbar from './Navbar';
+import React, { useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../context/I18nContext';
-import { useLocation } from 'react-router-dom';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { useTranslation } from 'react-i18next';
+import Navbar from './Navbar';
+import { Header } from '.';
 
 function Layout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
   const { dir, i18n, i18nInitialized } = useI18n();
   const location = useLocation();
-  const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  if (!i18nInitialized) {
+    return <div>Loading...</div>;
+  }
 
   if (!isAuthenticated) {
     return <div className="p-4">Please log in</div>;
@@ -25,27 +27,38 @@ function Layout({ children }: { children: React.ReactNode }) {
     return 'dashboard.overview';
   };
 
-  if (!i18nInitialized) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div dir={dir} className="min-h-screen flex">
-      <div className="hidden sm:block bg-background-white">
+    <div dir={dir} className="min-h-[100vh] flex">
+      {/* Mobile Drawer Menu */}
+      <div
+        className={`fixed top-0 bottom-0 ${dir === 'rtl' ? 'right-0' : 'left-0'} w-[15rem] bg-background-white z-50 transition-transform transform ${
+          isMenuOpen
+            ? dir === 'rtl'
+              ? 'translate-x-0'
+              : 'translate-x-0'
+            : dir === 'rtl'
+              ? 'translate-x-full'
+              : '-translate-x-full'
+        } lg:hidden`}
+      >
+        <div className="flex justify-end p-4 md:shadow-none shadow-2xl">
+          <AiOutlineClose size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(false)} />
+        </div>
         <Navbar />
       </div>
 
-      <div className="flex-grow flex flex-col bg-background-white">
-        <header className="p-4 flex items-center justify-between sm:justify-start sm:border-b sm:border-border-light dark:border-border-dark sm:border-b-0">
-          <div className="sm:hidden">
-            <AiOutlineMenu size={18} className="text-soar" />
+      {/* Navbar on Desktop */}
+      <div className="hidden lg:block w-[13rem] bg-background-white lg:flex-shrink-0">
+        <Navbar />
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-grow flex flex-col bg-background-white max-h-[100vh] w-full">
+        <Header title={i18n.t(getHeaderTitle())} setIsMenuOpen={setIsMenuOpen} />
+        <main className="flex-grow overflow-y-auto no-scrollbar">
+          <div className="container mx-auto max-w-[100vw] lg:max-w-[calc(100vw-13rem)] overflow-y-auto no-scrollbar p-4 lg:px-8 bg-background-light h-full">
+            {children}
           </div>
-          <h1 className="font-[600] text-[28px] text-soar sm:ml-4 sm:text-left text-center flex-grow">
-            {t(getHeaderTitle())}
-          </h1>
-        </header>
-        <main className="flex-grow bg-background-light">
-          {children}
         </main>
       </div>
     </div>

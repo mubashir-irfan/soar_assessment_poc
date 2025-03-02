@@ -2,6 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Reset begins*/
+/* src/index.css */
+
+/* Resetting default browser styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1.5; /* Consistent line height */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Explicitly setting root font size (optional, use with caution) */
+/* html {
+  font-size: 16px;  // or any value you prefer
+} */
+
+/* Controlling image scaling and aspect ratio */
+img {
+  max-width: 100%; /* Prevent images from overflowing their containers */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* or 'cover', 'fill', depending on your needs */
+}
+
+/* Ensure consistent box-sizing */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Text wrapping and word breaking */
+p, div, span {
+  overflow-wrap: break-word; /* or 'word-break: break-all;' */
+}
+
+/* Consistent font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* Reset ends*/
+
 @layer base {
   html {
     @apply bg-background-light text-text-light;
@@ -9,6 +98,27 @@
   html.dark {
     @apply bg-background-dark text-text-dark;
   }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 body {

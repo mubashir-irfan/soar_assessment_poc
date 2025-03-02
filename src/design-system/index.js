@@ -1,23 +1,28 @@
-// src/design-system/index.js
-
 module.exports = {
   colors: {
     soar: '#343C6A',
     active: '#232323',
     inactive: '#B1B1B1',
+    'soar-blue': '#396AFF',
     background: {
       light: '#F6F7FA',
+      secondary: '#F5F7FA',
       white: '#FFFFFF',
       dark: '#212529',
     },
     text: {
       primary: '#232323',
       secondary: '#718EBF',
-      light: '#212529',
-      dark: '#f8f9fa',
+      tertiary: '#9CA3AF',
+      light: '#FFFFFF',
+      dark: '#232323',
+      error: '#EF4444',
+    },
+    controls: {
+      primary: '#232323'
     },
     border: {
-      light: '#E6EFF6',
+      light: '#DFEAF2',
       dark: '#495057',
     },
   },
