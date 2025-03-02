@@ -36,7 +36,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:hidden`}
       >
-        <div className="flex justify-end p-4">
+        <div className="flex justify-end p-4 md:shadow-none shadow-2xl">
           <AiOutlineClose size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(false)} />
         </div>
         <Navbar />
@@ -49,7 +49,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <div className="flex-grow flex flex-col bg-background-white max-h-[100vh] w-full">
-        <header className="p-4 flex items-center justify-between lg:justify-start lg:border-b lg:border-border-light dark:border-border-dark lg:border-b-0">
+        <header className="p-4 flex items-center justify-between lg:justify-start lg:border-b lg:border-border-light dark:border-border-dark border-solid">
           <div className="lg:hidden">
             <AiOutlineMenu size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(true)} />
           </div>

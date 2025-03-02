@@ -53,7 +53,7 @@ function EditProfile() {
 
   return (
     <form onSubmit={handleSubmit(onValidSubmit)} className="w-full">
-      <div className="md:grid md:grid-cols-[20%_80%] items-start">
+      <div className="md:grid lg:grid-cols-[20%_80%] items-start">
         <div className="flex flex-col items-center mb-4 md:mb-0">
           <div className="relative">
             <img src={stagedProfile.avatarURL || 'https://via.placeholder.com/100'} alt="Profile" className="rounded-full w-24 h-24 object-cover" />

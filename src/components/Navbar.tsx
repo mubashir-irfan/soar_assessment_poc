@@ -85,7 +85,7 @@ function Navbar() {
   return (
     <nav
       aria-label="Main Navigation"
-      className="flex flex-col h-screen border-e border-border-light dark:border-border-dark bg-background-white"
+      className="flex flex-col h-screen border-e border-border-light border-solid dark:border-border-dark bg-background-white md:shadow-none shadow-2xl"
     >
       <div className="flex items-center p-4">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
@@ -93,33 +93,35 @@ function Navbar() {
       </div>
       <ul className="flex flex-col mb-auto">
         {navItems.map((item) => (
-          <li key={item.path} className="relative h-[3.75rem] flex items-center hover:bg-gray-100 dark:hover:bg-gray-800">
+          <li
+            key={item.path}
+            className="relative h-[3.75rem] flex items-center hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
-              className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${isActive(item.path) ? 'text-active' : 'text-inactive'
-                } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
+              className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${
+                isActive(item.path) ? 'text-active' : 'text-inactive'
+              } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] ps-5">
                 {item.icon}
                 <span>{t(item.label)}</span>
               </div>
-
+  
               {isActive(item.path) && (
-                <div
-                  className="absolute start-0 w-[6px] rounded-e-[10px] h-[3.75rem] bg-active"
-                />
+                <div className="absolute start-0 w-[6px] rounded-e-[10px] h-[3.75rem] bg-active" />
               )}
             </Link>
           </li>
         ))}
       </ul>
-      <div className='md:mt-auto mb-[4rem] md:mb-0'>
-        <div className='flex md:flex-row md:justify-between items-center gap-4 p-4 '>
-          <div className='flex flex-col gap-2'>
+      <div className="md:mt-auto mb-[4rem] md:mb-0">
+        <div className="flex md:flex-row md:justify-between items-center gap-4 p-4 ">
+          <div className="flex flex-col gap-2">
             <LanguageSwitcher />
           </div>
-          <div className='flex flex-col gap-2'>
+          <div className="flex flex-col gap-2">
             <ThemeSwitcher />
           </div>
         </div>
