@@ -16,7 +16,13 @@
     "overview": "Overview",
     "myCards": "My Cards",
     "seeAll": "See All",
-    "recentTransactions": "Recent Transactions"
+    "recentTransactions": "Recent Transactions",
+    "emptyCards": {
+      "unlockFinancialFreedom": "Unlock Your Financial Freedom!",
+      "experienceSeamlessTransactions": "Experience Seamless Transactions and Exclusive Benefits.",
+      "discoverYourCard": "Discover Your Card Now",
+      "cardsWillShowHere": "Get you have an active card, it will show here."
+    }
   },
   "card": {
     "balance": "Balance",

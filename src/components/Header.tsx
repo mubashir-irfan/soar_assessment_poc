@@ -21,7 +21,7 @@ type HeaderProps = {
     }, [])
   
     return (
-      <header className="p-4 flex items-center justify-between lg:justify-start lg:border-b lg:border-border-light dark:border-border-dark border-solid">
+      <header className="md:h-[6.25rem] px-4 py-2 flex items-center justify-between lg:justify-start lg:border-b lg:border-border-light dark:border-border-dark border-solid">
         <div className="lg:hidden">
           <AiOutlineMenu size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(true)} />
         </div>
@@ -47,7 +47,7 @@ type HeaderProps = {
             </div>
             <img src={userProfile.avatarURL
               || 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
-              alt="Profile" className="rounded-full w-9 h-9 sm:w-12 sm:h-12 md:w-[4.375rem] md:h-[4.375rem] object-cover"
+              alt="Profile" className="rounded-full w-9 h-9 sm:w-12 sm:h-12 md:w-[3.75rem] md:h-[3.75rem] object-cover"
             />
           </div>
           : <></>}

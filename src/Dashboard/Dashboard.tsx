@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, PieChart, SlicedPieChart, TextButton, TransactionEntry } from '../components';
+import { Card, CardChip, SlicedPieChart, TextButton, TransactionEntry } from '../components';
 import { mockDataService } from '../services/mockData';
 import { BalanceHistory, BankingCard, Contact, ExpenseStatistic, Transaction, WeeklyActivity } from '../types';
+import BalanceHistoryChart from './BalanceHistoryChart';
 import QuickTransferWidget from './QuickTransferWidget';
 import WeeklyActivitBarChart from './WeeklyActivityBarChart';
-import BalanceHistoryChart from './BalanceHistoryChart';
+import { CardsEmpty, CardSkeleton } from '../components/skeletons';
 
 function Dashboard() {
   const { t } = useTranslation();
+
+  // In actual production, I would use react query. The data and isLoading would come from a single source
   const [cards, setCards] = useState<BankingCard[]>([]);
+  const [isCardsLoading, setIsCardsLoading] = useState<boolean>(true);
+
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity>();
   const [expenseStatistics, setExpenseStatistics] = useState<ExpenseStatistic[]>([]);
@@ -17,7 +22,10 @@ function Dashboard() {
   const [balanceHistory, setBalanceHistory] = useState<BalanceHistory>();
 
   useEffect(() => {
-    mockDataService.getBankingCards().then(setCards);
+    mockDataService.getBankingCards().then((cards: BankingCard[]) => {
+      setCards(cards);
+      setIsCardsLoading(false);
+    });
     mockDataService.getTransactions().then(setTransactions);
     mockDataService.getWeeklyActivity().then(setWeeklyActivity);
     mockDataService.getExpenseStatistics().then(setExpenseStatistics);
@@ -30,18 +38,21 @@ function Dashboard() {
       {/* First row: Cards and Recent Transactions */}
       <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
         {/* Cards Section */}
-        {!!cards.length && (
+        {(
           <section className="overflow-x-auto max-w-full">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg text-soar font-semibold">{t('dashboard.myCards')}</h2>
               <TextButton ariaLabel={t('dashboard.seeAll')}>{t('dashboard.seeAll')}</TextButton>
             </div>
-            <div className="flex overflow-x-auto max-w-full no-scrollbar">
-              {cards.slice(0, 3).map((card, index) => (
-                <div key={index} className="inline-block me-4 last:me-0 max-w-full">
-                  <Card card={card} />
-                </div>
-              ))}
+            <div className="flex overflow-x-auto max-w-full no-scrollbar-h-[13.375rem] lg:h-[14.6875rem]">
+              {!isCardsLoading ?
+                cards.length ?
+                  cards.map((card, index) => (
+                    <div key={index} className="inline-block me-4 last:me-0 max-w-full">
+                      <Card card={card} />
+                    </div>
+                  )) : <CardsEmpty />
+                : <CardSkeleton />}
             </div>
           </section>
         )}
@@ -97,7 +108,7 @@ function Dashboard() {
 
 
         <section className="lg:flex-grow">
-        <h2 className="text-lg font-semibold text-soar">Balance History</h2>
+          <h2 className="text-lg font-semibold text-soar">Balance History</h2>
           <div className='mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] lg:h-[17.25rem]'>
             <BalanceHistoryChart history={balanceHistory} />
           </div>
@@ -106,5 +117,6 @@ function Dashboard() {
     </div>
   );
 }
+
 
 export default Dashboard;

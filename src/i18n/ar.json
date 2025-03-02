@@ -16,7 +16,13 @@
     "overview": "نظرة عامة",
     "myCards": "بطاقاتي",
     "seeAll": "عرض الكل",
-    "recentTransactions": "العمليات الأخيرة"
+    "recentTransactions": "العمليات الأخيرة",
+    "emptyCards": {
+      "unlockFinancialFreedom": "أطلق العنان لحريتك المالية!",
+      "experienceSeamlessTransactions": "استمتع بمعاملات سلسة ومزايا حصرية.",
+      "discoverYourCard": "اكتشف بطاقتك الآن",
+      "cardsWillShowHere": "عند حصولك على بطاقة نشطة، ستظهر هنا."
+    }
   },
   "card": {
     "balance": "الرصيد",
