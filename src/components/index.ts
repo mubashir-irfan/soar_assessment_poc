@@ -9,3 +9,4 @@ export {default as TextButton} from './TextButton';
 export {default as PieChart} from './PieChart';
 export {default as SlicedPieChart} from './SlicedPieChart';
 export {default as AreaChart} from './AreaChart';
+export {default as Tabs} from './Tabs';

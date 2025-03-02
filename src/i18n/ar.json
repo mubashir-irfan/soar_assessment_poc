@@ -47,7 +47,11 @@
     "settings": "الإعدادات",
     "editProfile": {
       "title": "تعديل الملف الشخصي",
-      "saveButton": "حفظ التغييرات"
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "nameRequired": "الاسم مطلوب.",
+      "emailInvalid": "بريد إلكتروني غير صالح.",
+      "save": "حفظ"
     },
     "preferences": {
       "title": "التفضيلات"

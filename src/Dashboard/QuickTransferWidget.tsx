@@ -121,7 +121,7 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
         <div className="flex items-center gap-4 max-w-[24rem] mx-auto">
           <label
             htmlFor="amountInput"
-            className="text-text-secondary text-[12px] sm:text-[16px] font-normal me-2"
+            className="min-w-max  me-2 text-text-secondary text-[12px] sm:text-[16px] font-normal"
           >
             {t('quickTransfer.writeAmount')}
           </label>

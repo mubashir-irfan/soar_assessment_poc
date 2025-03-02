@@ -93,7 +93,7 @@ function Navbar() {
       </div>
       <ul className="flex flex-col mb-auto">
         {navItems.map((item) => (
-          <li key={item.path} className="relative h-[3.75rem] flex items-center hover:bg-gray-100 dark:hover:bg-gray-800 ">
+          <li key={item.path} className="relative h-[3.75rem] flex items-center hover:bg-gray-100 dark:hover:bg-gray-800">
             <Link
               to={item.path}
               aria-label={item.ariaLabel}
@@ -108,8 +108,7 @@ function Navbar() {
 
               {isActive(item.path) && (
                 <div
-                  className="absolute start-0 w-[6px] rounded-e-[10px]"
-                  style={{ backgroundColor: designSystem.colors.active, height: '60px' }}
+                  className="absolute start-0 w-[6px] rounded-e-[10px] h-[3.75rem] bg-active"
                 />
               )}
             </Link>

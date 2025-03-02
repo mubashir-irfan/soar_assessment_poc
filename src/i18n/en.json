@@ -47,7 +47,11 @@
     "settings": "Settings",
     "editProfile": {
       "title": "Edit Profile",
-      "saveButton": "Save Changes"
+      "name": "Name",
+      "email": "Email",
+      "nameRequired": "Name is required.",
+      "emailInvalid": "Invalid email address.",
+      "save": "Save"
     },
     "preferences": {
         "title": "Preferences"
