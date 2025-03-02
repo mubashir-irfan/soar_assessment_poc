@@ -90,7 +90,7 @@ function Dashboard() {
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="rounded-[1.5rem]">
           <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
-          <div className='mt-4 h-[14rem] lg:h-[17.25rem] bg-white rounded-[1.5rem]'>
+          <div className='mt-4 h-[14rem] max-w-full lg:h-[17.25rem] bg-white rounded-[1.5rem]'>
             <QuickTransferWidget contacts={contacts} />
           </div>
         </div>

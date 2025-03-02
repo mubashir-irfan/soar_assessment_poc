@@ -58,58 +58,53 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   }, [scrollPosition]);
 
   return (
-    <div className="px-3 py-6 sm:px-6 sm:py-9 flex flex-col justify-between gap-6">
+    <div className="px-3 py-6 sm:px-6 sm:py-9 flex flex-col justify-between gap-6 max-w-full">
       {/* Contacts Section */}
       <section aria-label="Contacts">
         <div className="flex items-center whitespace-nowrap mb-4">
           <div
             ref={contactListRef}
-            className="flex flex-grow overflow-x-auto scroll-smooth no-scrollbar max-w-[25rem]"
+            className="overflow-x-auto scroll-smooth no-scrollbar" // removed flex-grow and added overflow-x-auto
             role="listbox"
             aria-label="Contact List"
           >
-            {contacts.map((contact) => (
-              <button
-                key={contact.id}
-                className={`flex flex-col items-center me-4 last:me-0 cursor-pointer ${
-                  selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                }`}
-                onClick={() => handleContactClick(contact)}
-                role="option"
-                aria-selected={selectedContact?.id === contact.id}
-              >
-                <img
-                  src={contact.avatarURL}
-                  alt={contact.name}
-                  className="rounded-full w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] object-cover"
-                />
-                <div
-                  className={`text-[12px] sm:text-[16px] text-[#232323] mt-3 ${
-                    selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                  }`}
+            <div className="flex max-w-[60vw]">
+              {contacts.map((contact) => (
+                <button
+                  key={contact.id}
+                  className={`flex flex-col items-center me-2 last:me-0 cursor-pointer p-1`} // reduced margins and padding
+                  onClick={() => handleContactClick(contact)}
+                  role="option"
+                  aria-selected={selectedContact?.id === contact.id}
                 >
-                  {contact.name}
-                </div>
-                <div
-                  className={`text-[12px] sm:text-[15px] text-text-secondary ${
-                    selectedContact?.id === contact.id ? 'font-bold' : 'font-medium'
-                  }`}
-                >
-                  {contact.title}
-                </div>
-              </button>
-            ))}
+                  <img
+                    src={contact.avatarURL}
+                    alt={contact.name}
+                    className="rounded-full w-[40px] h-[40px] object-cover" // smaller image size
+                  />
+                  <div
+                    className={`text-[10px] text-[#232323] mt-1 text-center`} // smaller font and added text-center
+                  >
+                    {contact.name}
+                  </div>
+                  <div
+                    className={`text-[10px] text-text-secondary text-center`} // smaller font and added text-center
+                  >
+                    {contact.title}
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="ms-4 shrink-0">
+          <div className="ms-auto shrink-0">
             <button
               className="rounded-full w-[50px] h-[50px] sm:min-w-[40px] sm:min-h-[40px] flex items-center justify-center cursor-pointer shadow-[0px_0px_18px_-2px_#E7E4E8CC]"
               onClick={handleScrollRight}
               aria-label="Scroll Contacts Right"
             >
               <IoIosArrowForward
-                className={`w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary ${
-                  isRTL ? 'rotate-180' : ''
-                }`}
+                className={`w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary ${isRTL ? 'rotate-180' : ''
+                  }`}
               />
             </button>
           </div>
@@ -135,9 +130,8 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               aria-label="Enter Amount to Send"
             />
             <button
-              className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${
-                (selectedContact) ? '' : 'opacity-50 cursor-not-allowed'
-              } ${isSending ? 'bg-gray-600' : ''}`}
+              className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${(selectedContact) ? '' : 'opacity-50 cursor-not-allowed'
+                } ${isSending ? 'bg-gray-600' : ''}`}
               onClick={handleSend}
               disabled={!selectedContact || isSending}
               aria-label="Send Amount"

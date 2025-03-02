@@ -117,7 +117,7 @@ function Navbar() {
         ))}
       </ul>
       <div className="md:mt-auto mb-[4rem] md:mb-0">
-        <div className="flex md:flex-row md:justify-between items-center gap-4 p-4 ">
+        <div className="flex md:flex-row justify-between items-center gap-4 p-4 ">
           <div className="flex flex-col gap-2">
             <LanguageSwitcher />
           </div>

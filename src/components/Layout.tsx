@@ -57,8 +57,8 @@ function Layout({ children }: { children: React.ReactNode }) {
             {i18n.t(getHeaderTitle())}
           </h1>
         </header>
-        <main className="flex-grow overflow-y-auto">
-          <div className="container mx-auto max-w-[100vw] lg:max-w-[calc(100vw-13rem)] overflow-y-auto p-4 lg:px-8 bg-background-light h-full">
+        <main className="flex-grow overflow-y-auto no-scrollbar">
+          <div className="container mx-auto max-w-[100vw] lg:max-w-[calc(100vw-13rem)] overflow-y-auto no-scrollbar p-4 lg:px-8 bg-background-light h-full">
             {children}
           </div>
         </main>
