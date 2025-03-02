@@ -116,7 +116,7 @@ function Card({ card }: CardProps) {
         className={`flex justify-between px-[1.25rem] ${
           isPremium ? 'py-[1rem]' : 'py-[0.75rem] sm:py-[0.9375rem]'
         } items-center w-full ${
-          isPremium ? 'bg-white/15' : 'border-t border-border-light'
+          isPremium ? 'bg-white/15' : 'border-t border-border-light border-solid'
         }`}
       >
         <div
