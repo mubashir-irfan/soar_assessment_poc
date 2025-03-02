@@ -32,7 +32,7 @@ function FormInput({
     <div className="mb-4">
       <label
         htmlFor={id}
-        className="block text-base md:text-lg font-medium text-text-primary mb-1"
+        className="block text-base md:text-lg text-text-primary mb-1"
       >
         {label}
       </label>
