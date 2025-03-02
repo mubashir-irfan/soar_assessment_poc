@@ -31,8 +31,15 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div dir={dir} className="min-h-[100vh] flex">
       {/* Mobile Drawer Menu */}
       <div
-        className={`fixed top-0 bottom-0 left-0 w-[15rem] bg-background-white z-50 transition-transform transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          } lg:hidden`}
+        className={`fixed top-0 bottom-0 ${dir === 'rtl' ? 'right-0' : 'left-0'} w-[15rem] bg-background-white z-50 transition-transform transform ${
+          isMenuOpen
+            ? dir === 'rtl'
+              ? 'translate-x-0'
+              : 'translate-x-0'
+            : dir === 'rtl'
+              ? 'translate-x-full'
+              : '-translate-x-full'
+        } lg:hidden`}
       >
         <div className="flex justify-end p-4 md:shadow-none shadow-2xl">
           <AiOutlineClose size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(false)} />
@@ -57,6 +64,5 @@ function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
 
 export default Layout;
