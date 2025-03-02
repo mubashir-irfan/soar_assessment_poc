@@ -15,3 +15,5 @@ export function formatCurrency(amount: number): string {
     maximumFractionDigits: 0, // Set maximum fraction digits to 0
   }).format(amount);
 }
+
+export {required, validEmail} from './validators'
