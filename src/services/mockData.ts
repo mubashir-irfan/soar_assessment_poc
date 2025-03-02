@@ -133,7 +133,21 @@ let mockUserData: User = {
   balanceHistory: {
     labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
     amounts: [150, 375, 220, 430, 510, 800, 205],
-  }
+  },
+  profile: {
+    id: 1,
+    avatarURL: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'John Doe',
+    userName: 'johndoe123',
+    email: 'john.doe@example.com',
+    password: 'password123',
+    dateOfBirth: '1990-01-01',
+    presentAddress: '123 Main St',
+    permanentAddress: '456 Oak Ave',
+    city: 'Anytown',
+    postalCode: '12345',
+    country: 'USA',
+  },
 };
 
 export const mockDataService = {
@@ -154,6 +168,9 @@ export const mockDataService = {
   },
   getBalanceHistory: () => {
     return delayedPromise(mockUserData.balanceHistory);
+  },
+  getUserProfile: () => {
+    return delayedPromise(mockUserData.profile);
   }
 };
 

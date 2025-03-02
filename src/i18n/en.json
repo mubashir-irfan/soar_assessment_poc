@@ -47,11 +47,23 @@
     "settings": "Settings",
     "editProfile": {
       "title": "Edit Profile",
-      "name": "Name",
+      "name": "Your Name",
+      "userName": "Username",
       "email": "Email",
-      "nameRequired": "Name is required.",
+      "password": "Password",
+      "dateOfBirth": "Date of Birth",
+      "presentAddress": "Present Address",
+      "permanentAddress": "Permanent Address",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "country": "Country",
+      "nameRequired": "Your name is required.",
+      "userNameRequired": "Username is required.",
       "emailInvalid": "Invalid email address.",
-      "save": "Save"
+      "passwordRequired": "Password is required.",
+      "save": "Save",
+      "edit": "Edit",
+      "cancel": "Cancel"
     },
     "preferences": {
         "title": "Preferences"

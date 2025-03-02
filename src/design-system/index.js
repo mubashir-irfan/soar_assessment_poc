@@ -1,5 +1,3 @@
-// src/design-system/index.js
-
 module.exports = {
   colors: {
     soar: '#343C6A',
@@ -14,11 +12,13 @@ module.exports = {
     text: {
       primary: '#232323',
       secondary: '#718EBF',
-      light: '#212529',
-      dark: '#f8f9fa',
+      tertiary: '#9CA3AF',
+      light: '#FFFFFF',
+      dark: '#232323',
+      error: '#EF4444',
     },
     border: {
-      light: '#E6EFF6',
+      light: '#DFEAF2',
       dark: '#495057',
     },
   },

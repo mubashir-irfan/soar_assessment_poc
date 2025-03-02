@@ -47,11 +47,23 @@
     "settings": "الإعدادات",
     "editProfile": {
       "title": "تعديل الملف الشخصي",
-      "name": "الاسم",
+      "name": "اسمك",
+      "userName": "اسم المستخدم",
       "email": "البريد الإلكتروني",
-      "nameRequired": "الاسم مطلوب.",
+      "password": "كلمة المرور",
+      "dateOfBirth": "تاريخ الميلاد",
+      "presentAddress": "العنوان الحالي",
+      "permanentAddress": "العنوان الدائم",
+      "city": "المدينة",
+      "postalCode": "الرمز البريدي",
+      "country": "الدولة",
+      "nameRequired": "اسمك مطلوب.",
+      "userNameRequired": "اسم المستخدم مطلوب.",
       "emailInvalid": "بريد إلكتروني غير صالح.",
-      "save": "حفظ"
+      "passwordRequired": "كلمة المرور مطلوبة.",
+      "save": "حفظ",
+      "edit": "تعديل",
+      "cancel": "إلغاء"
     },
     "preferences": {
       "title": "التفضيلات"

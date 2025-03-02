@@ -6,7 +6,23 @@ export interface User {
   expenseStatistics: ExpenseStatistic[];
   contacts: Contact[];
   balanceHistory: BalanceHistory;
+  profile: UserProfile
 }
+
+export interface UserProfile {
+  id: number;
+  name: string;
+  userName: string;
+  email: string;
+  password: string;
+  avatarURL?: string;
+  dateOfBirth?: string;
+  presentAddress?: string;
+  permanentAddress?: string;
+  city?: string;
+  postalCode?: string;
+  country?: string;
+};
 
 export enum SoarCardType {
   SOAR_PREMIUM = 'SOAR_PREMIUM',
