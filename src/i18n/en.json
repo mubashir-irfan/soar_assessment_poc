@@ -9,7 +9,8 @@
     "loans": "Loans",
     "services": "Services",
     "myPrivileges": "My Privileges",
-    "settings": "Settings"
+    "settings": "Settings",
+    "searchForSomething": "Search for something"
   },
   "dashboard": {
     "overview": "Overview",

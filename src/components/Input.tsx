@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { FieldError, Merge, FieldErrorsImpl, UseFormRegisterReturn } from 'react-hook-form';
+import React from 'react';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 interface FormInputProps {
   label: string;

@@ -56,7 +56,7 @@ function EditProfile() {
       <div className="md:grid lg:grid-cols-[20%_80%] items-start">
         <div className="flex flex-col items-center mb-4 md:mb-0">
           <div className="relative">
-            <img src={stagedProfile.avatarURL || 'https://via.placeholder.com/100'} alt="Profile" className="rounded-full w-24 h-24 object-cover" />
+            <img src={stagedProfile.avatarURL || 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'} alt="Profile" className="rounded-full w-24 h-24 object-cover" />
             {isEditing && (
               <label htmlFor="image-upload" className="absolute bottom-0 right-0 cursor-pointer">
                 <div className="bg-black rounded-full p-2">

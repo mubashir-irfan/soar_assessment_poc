@@ -1,6 +1,6 @@
 {
   "navbar": {
-     "soarTask": "Soar مهمة",
+    "soarTask": "Soar مهمة",
     "dashboard": "لوحة التحكم",
     "transactions": "المعاملات",
     "accounts": "الحسابات",
@@ -9,13 +9,14 @@
     "loans": "القروض",
     "services": "الخدمات",
     "myPrivileges": "امتيازاتي",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "searchForSomething": "ابحث عن"
   },
   "dashboard": {
     "overview": "نظرة عامة",
     "myCards": "بطاقاتي",
     "seeAll": "عرض الكل",
-     "recentTransactions": "العمليات الأخيرة"
+    "recentTransactions": "العمليات الأخيرة"
   },
   "card": {
     "balance": "الرصيد",

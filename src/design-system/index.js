@@ -6,6 +6,7 @@ module.exports = {
     'soar-blue': '#396AFF',
     background: {
       light: '#F6F7FA',
+      secondary: '#F5F7FA',
       white: '#FFFFFF',
       dark: '#212529',
     },

@@ -10,6 +10,7 @@ export {default as PieChart} from './PieChart';
 export {default as SlicedPieChart} from './SlicedPieChart';
 export {default as AreaChart} from './AreaChart';
 export {default as Tabs} from './Tabs';
-export {default as FormInput} from './FormInput';
+export {default as FormInput} from './Input';
 export {default as Button} from './Button';
 export {default as ThemeSwitcher} from './ThemeSwitcher';
+export {default as Header} from './Header'
