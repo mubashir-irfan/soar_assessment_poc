@@ -7,6 +7,8 @@ In order to run:
 2. Run `npm install`
 3. Run `npm start`
 
+It runs a generic, reusable API layer on top of a mock data servince - for demonsration purposes.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
