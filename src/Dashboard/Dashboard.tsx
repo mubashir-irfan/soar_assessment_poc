@@ -16,8 +16,8 @@ function Dashboard() {
   const { data: transactions = [], isLoading: isTransactionsLoading } =
     useGet<Transaction[]>(APIEndpoints.transactions.getRecentTransactions(), APIEndpoints.transactions.getRecentTransactions())
 
-  const { data: weeklyActivity, isLoading: isWeeklyActivityLoading , refetch:refetchWeeklyActivity} = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity())
-  // console.log('dashboard::weekly data', weeklyActivity)
+  const { data: weeklyActivity, isLoading: isWeeklyActivityLoading } = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity())
+
   const { data: expenseStatistics = [], isLoading: isExpenseStatisticsLoading } = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics())
 
   const { data: contacts = [], isLoading: isLoadingContacts } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())

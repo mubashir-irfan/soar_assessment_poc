@@ -16,7 +16,6 @@ export const useGet = <T>(url: string, queryKey: string): UseQueryResult<T, Axio
   return useQuery<AxiosResponse<T>, AxiosError, T>({
     queryKey: [queryKey],
       queryFn: async () => {
-      console.log('useGet got request', url, queryKey)
        return await APIService.get(url)
       } 
   });

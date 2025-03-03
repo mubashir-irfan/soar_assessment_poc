@@ -15,7 +15,6 @@ const createMockResponse = (data: any, config: any) => ({
 });
 
 axiosInstance.interceptors.request.use(async (config) => {
-  // console.log('mock req interceptor', config.url, mockDataService.getWeeklyActivity().then(data => console.log(data)))
   const urlMap: Record<string, () => Promise<any>> = {
     [APIEndpoints.cards.getCards()]: mockDataService.getBankingCards,
     [APIEndpoints.transactions.getRecentTransactions()]: mockDataService.getTransactions,
@@ -37,7 +36,6 @@ axiosInstance.interceptors.request.use(async (config) => {
   const url: string = config.url ?? '';
   if (urlMap[url]) {
     mockResponse = await createMockResponse(await urlMap[url](), config);
-    console.log('axios instance mockResponse', url, mockResponse)
   }  else if (config.method === 'post' && postUrlMap[url]) {
     mockResponse = await createMockResponse(await postUrlMap[url](), config);
   }
