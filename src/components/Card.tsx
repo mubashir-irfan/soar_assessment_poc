@@ -44,7 +44,7 @@ function Card({ card }: CardProps) {
 
   return (
     <div
-      className={`flex flex-col rounded-[1rem] sm:rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] ${
+      className={`flex flex-col rounded-[1rem] sm:rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] overflow-hidden ${
         isPremium
           ? 'bg-gradient-to-r from-[#5B5A6F] to-[#000000]'
           : 'bg-white text-secondary border border-border-light'

@@ -86,11 +86,11 @@ function Navbar() {
   return (
     <nav
       aria-label="Main Navigation"
-      className="flex flex-col h-screen border-e border-border-light border-solid dark:border-border-dark bg-background-white md:shadow-none shadow-2xl"
+      className="flex flex-col h-screen border-e border-border-light dark:border-0 border-solid bg-background-white dark:bg-background-dark-secondary md:shadow-none shadow-2xl"
     >
       <div className="flex items-center p-4">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
-        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar">
+        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar dark:text-white">
           {t('navbar.soarTask')}
         </span>
       </div>
@@ -104,7 +104,9 @@ function Navbar() {
               to={item.path}
               aria-label={item.ariaLabel}
               className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${
-                isActive(item.path) ? 'text-active' : 'text-inactive'
+                isActive(item.path)
+                  ? 'text-active dark:text-white'
+                  : 'text-inactive dark:text-inactive-dark'
               } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] ps-5">
@@ -126,9 +128,6 @@ function Navbar() {
         <div className="flex md:flex-row justify-between items-center gap-4 p-4 ">
           <div className="flex flex-col gap-2">
             <LanguageSwitcher />
-          </div>
-          <div className="flex flex-col gap-2">
-            <ThemeSwitcher />
           </div>
         </div>
       </div>

@@ -21,29 +21,29 @@ const Header = ({ title, setIsMenuOpen }: HeaderProps) => {
   }, []);
 
   return (
-    <header className="h-[6.8125rem] md:h-[6.25rem] lg:border-b lg:border-border-light dark:border-border-dark border-solid">
-      <div className="px-4 py-2 flex items-center justify-between lg:justify-start ">
+    <header className="h-[6.8125rem] md:h-[6.25rem] lg:border-b lg:border-border-light border-solid dark:border-0">
+      <div className="px-4 py-2 flex items-center justify-between lg:justify-start dark:bg-background-dark-secondary dark:text-whites">
         <div className="lg:hidden">
           <AiOutlineMenu
             size={24}
-            className="text-soar cursor-pointer"
+            className="text-soar dark:text-white cursor-pointer"
             onClick={() => setIsMenuOpen(true)}
           />
         </div>
-        <h1 className="font-[600] sm:text-[1.25rem] md:text-[1.75rem] text-soar lg:ml-4 lg:text-left text-center flex-grow">
+        <h1 className="font-[600] sm:text-[1.25rem] md:text-[1.75rem] text-soar lg:ml-4 lg:text-left text-center flex-grow dark:text-white">
           {title}
         </h1>
 
         {userProfile ? (
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center dark:text-whites">
             <div
-              className={`hidden md:flex gap-2 justify-center items-center px-4 py-3 bg-background-secondary text-text-secondary rounded-[2.5rem]
+              className={`hidden md:flex gap-2 justify-center items-center px-4 py-3 bg-background-secondary dark:bg-background-secondry-dark dark:text-white text-text-secondary rounded-[2.5rem]
                focus:outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1
                focus-visible:ring-offset-background-white`}
             >
               <HiMagnifyingGlass size={25} />
               <input
-                className="bg-transparent placeholder-text-tertiary focus:outline-none"
+                className="bg-transparent dark: placeholder-text-tertiary focus:outline-none"
                 placeholder={t('navbar.searchForSomething')}
               />
             </div>

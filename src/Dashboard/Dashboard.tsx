@@ -67,7 +67,9 @@ function Dashboard() {
         {
           <section className="overflow-x-auto max-w-full">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg text-soar font-semibold">{t('dashboard.myCards')}</h2>
+              <h2 className="text-lg text-soar dark:text-white font-semibold">
+                {t('dashboard.myCards')}
+              </h2>
               <TextButton ariaLabel={t('dashboard.seeAll')}>{t('dashboard.seeAll')}</TextButton>
             </div>
             <div className="flex overflow-x-auto max-w-full no-scrollbar-h-[13.375rem] lg:h-[14.6875rem] no-scrollbar">
@@ -90,7 +92,9 @@ function Dashboard() {
 
         {/* Recent Transactions Section */}
         <section className="">
-          <h2 className="text-soar text-lg font-semibold">{t('dashboard.recentTransactions')}</h2>
+          <h2 className="text-soar dark:text-white text-lg font-semibold">
+            {t('dashboard.recentTransactions')}
+          </h2>
           <div className="mt-4 bg-white rounded-[1.5rem] p-4 h-[13.375rem] max-h-[13.375rem] lg:h-[14.6875rem] lg:max-h-[14.6875rem] overflow-y-auto no-scrollbar max-w-full">
             {!isTransactionsLoading ? (
               transactions.length ? (
@@ -120,7 +124,9 @@ function Dashboard() {
       {/* Second row: Weekly Activity and Expense Statistics */}
       <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
         <section className="max-w-full">
-          <h2 className="text-soar text-lg font-semibold">{t('weeklyActivity.title')}</h2>
+          <h2 className="text-soar dark:text-white text-lg font-semibold">
+            {t('weeklyActivity.title')}
+          </h2>
           <div className="mt-4 bg-white rounded-[1.5rem] p-4 border-box h-[17.8125rem] lg:h-[20.125rem] lg:max-h-[20.125rem] max-w-full">
             {!isWeeklyActivityLoading ? (
               weeklyActivity ? (
@@ -139,7 +145,9 @@ function Dashboard() {
         </section>
 
         <section className="max-w-full">
-          <h2 className="text-lg font-semibold text-soar">{t('expenseStatistics.title')}</h2>
+          <h2 className="text-lg font-semibold text-soar dark:text-white">
+            {t('expenseStatistics.title')}
+          </h2>
           <div className="mt-4 bg-white rounded-[1.5rem] p-4 flex items-center justify-center lg:h-[20.125rem] lg:max-h-[20.125rem] max-w-full">
             {!isExpenseStatisticsLoading ? (
               expenseStatistics ? (
@@ -159,7 +167,9 @@ function Dashboard() {
       {/* Third row: Quick Send and Balance History (Flexbox) */}
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="">
-          <h2 className="text-lg font-semibold text-soar">{t('quickTransfer.title')}</h2>
+          <h2 className="text-lg font-semibold text-soar dark:text-white">
+            {t('quickTransfer.title')}
+          </h2>
           <div className="mt-4 h-[14rem] max-w-[full] lg:h-[17.25rem] bg-white rounded-[1.5rem]">
             {!isLoadingContacts ? (
               contacts.length ? (
@@ -176,7 +186,7 @@ function Dashboard() {
         </div>
 
         <section className="lg:flex-grow min-w-[60%]">
-          <h2 className="text-lg font-semibold text-soar">Balance History</h2>
+          <h2 className="text-lg font-semibold text-soar dark:text-white">Balance History</h2>
           <div className="mt-4 p-4 bg-white rounded-[1.5rem] h-[14rem] lg:h-[17.25rem]">
             {!isLoadingBalanceHistory ? (
               balanceHistory ? (

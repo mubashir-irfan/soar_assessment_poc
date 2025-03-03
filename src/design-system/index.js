@@ -3,12 +3,14 @@ module.exports = {
     soar: '#343C6A',
     active: '#232323',
     inactive: '#B1B1B1',
+    'inactive-dark': '#939393',
     'soar-blue': '#396AFF',
     background: {
       light: '#F6F7FA',
       secondary: '#F5F7FA',
       white: '#FFFFFF',
-      dark: '#212529',
+      dark: '#1B1C1D',
+      'dark-secondary': '#282a2c',
     },
     text: {
       primary: '#232323',
