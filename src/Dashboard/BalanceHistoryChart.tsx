@@ -10,11 +10,11 @@ interface BalanceHistoryChartProps {
 }
 
 function BalanceHistoryChart({ history }: BalanceHistoryChartProps) {
-  if (!history) return 'empty state'
+  if (!history) return 'empty state';
   const chartData: AreaChartData = {
     labels: history.labels,
     values: history.amounts,
-  }
+  };
   return <AreaChart data={chartData} lineColor="#1814F3" />;
 }
 

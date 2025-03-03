@@ -17,15 +17,13 @@ function Settings() {
   const tabContent: { [key: string]: ReactNode } = {
     editProfile: <EditProfile />,
     preferences: <Preferences />,
-    security: <p>Security TBD</p>
+    security: <p>Security TBD</p>,
   };
 
   return (
     <div className="rounded-[1.5rem] p-4 bg-white max-w-[1280px] mx-auto">
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="mt-4 p-4">
-        {tabContent[activeTab]}
-      </div>
+      <div className="mt-4 p-4">{tabContent[activeTab]}</div>
     </div>
   );
 }

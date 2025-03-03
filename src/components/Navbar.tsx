@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FaTools } from "react-icons/fa";
+import { FaTools } from 'react-icons/fa';
 import {
   FaBuildingColumns,
   FaChartLine,
@@ -12,6 +12,7 @@ import {
 import { IoIosSettings, IoMdHome } from 'react-icons/io';
 import { Link, useLocation } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
+import MockDataUpdater from './MockDataUpdater';
 import ThemeSwitcher from './ThemeSwitcher';
 
 function Navbar() {
@@ -85,13 +86,15 @@ function Navbar() {
   return (
     <nav
       aria-label="Main Navigation"
-      className="flex flex-col h-screen border-e border-border-light border-solid dark:border-border-dark bg-background-white md:shadow-none shadow-2xl"
+      className="flex flex-col h-screen border-e border-border-light dark:border-0 border-solid bg-background-white dark:bg-background-dark-secondary md:shadow-none shadow-2xl"
     >
       <div className="flex items-center p-4">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
-        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar">{t('navbar.soarTask')}</span>
+        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar dark:text-white">
+          {t('navbar.soarTask')}
+        </span>
       </div>
-      <ul className="flex flex-col mb-auto">
+      <ul className="flex flex-col">
         {navItems.map((item) => (
           <li
             key={item.path}
@@ -101,14 +104,16 @@ function Navbar() {
               to={item.path}
               aria-label={item.ariaLabel}
               className={`w-full h-full flex items-center gap-[1.625rem] font-[500] ${
-                isActive(item.path) ? 'text-active' : 'text-inactive'
+                isActive(item.path)
+                  ? 'text-active dark:text-white'
+                  : 'text-inactive dark:text-inactive-dark'
               } focus:outline-none focus-visible:ring-2 focus-visible:ring-soar focus-visible:ring-offset-1 focus-visible:ring-offset-background-white relative`}
             >
               <div className="flex items-center gap-[1.625rem] ps-5">
                 {item.icon}
                 <span>{t(item.label)}</span>
               </div>
-  
+
               {isActive(item.path) && (
                 <div className="absolute start-0 w-[6px] rounded-e-[10px] h-[3.75rem] bg-active" />
               )}
@@ -116,13 +121,13 @@ function Navbar() {
           </li>
         ))}
       </ul>
+      <div className="flex justify-center mb-auto mt-4">
+        <MockDataUpdater />
+      </div>
       <div className="md:mt-auto mb-[4rem] md:mb-0">
         <div className="flex md:flex-row justify-between items-center gap-4 p-4 ">
           <div className="flex flex-col gap-2">
             <LanguageSwitcher />
-          </div>
-          <div className="flex flex-col gap-2">
-            <ThemeSwitcher />
           </div>
         </div>
       </div>

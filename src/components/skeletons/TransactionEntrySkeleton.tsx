@@ -1,4 +1,3 @@
-
 function TransactionEntrySkeleton() {
   return (
     <div className="flex items-center gap-4 py-1 animate-pulse">

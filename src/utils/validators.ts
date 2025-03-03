@@ -3,7 +3,7 @@ export const required = (message: string) => (value: string) =>
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
-export const isEmailValid = (email: string | undefined) => email && EMAIL_REGEX.test(email)
+export const isEmailValid = (email: string | undefined) => email && EMAIL_REGEX.test(email);
 
 export const isPasswordValid = (password: string | undefined) => {
   if (!password) {
@@ -17,11 +17,5 @@ export const isPasswordValid = (password: string | undefined) => {
   const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
   // Check if all requirements are met
-  return (
-    password.length >= minLength &&
-    hasUppercase &&
-    hasLowercase &&
-    hasNumber &&
-    hasSymbol
-  );
+  return password.length >= minLength && hasUppercase && hasLowercase && hasNumber && hasSymbol;
 };

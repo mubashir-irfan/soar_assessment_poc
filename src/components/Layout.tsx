@@ -31,7 +31,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div dir={dir} className="min-h-[100vh] flex">
       {/* Mobile Drawer Menu */}
       <div
-        className={`fixed top-0 bottom-0 ${dir === 'rtl' ? 'right-0' : 'left-0'} w-[15rem] bg-background-white z-50 transition-transform transform ${
+        className={`fixed top-0 bottom-0 ${dir === 'rtl' ? 'right-0' : 'left-0'} w-[15rem] bg-background-white dark:bg-background-dark-secondry z-50 transition-transform transform ${
           isMenuOpen
             ? dir === 'rtl'
               ? 'translate-x-0'
@@ -42,21 +42,25 @@ function Layout({ children }: { children: React.ReactNode }) {
         } lg:hidden`}
       >
         <div className="flex justify-end p-4 md:shadow-none shadow-2xl">
-          <AiOutlineClose size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(false)} />
+          <AiOutlineClose
+            size={24}
+            className="text-soar cursor-pointer"
+            onClick={() => setIsMenuOpen(false)}
+          />
         </div>
         <Navbar />
       </div>
 
       {/* Navbar on Desktop */}
-      <div className="hidden lg:block w-[13rem] bg-background-white lg:flex-shrink-0">
+      <div className="hidden lg:block w-[13rem] lg:flex-shrink-0">
         <Navbar />
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow flex flex-col bg-background-white max-h-[100vh] w-full">
+      <div className="flex-grow flex flex-col max-h-[100vh] w-full">
         <Header title={i18n.t(getHeaderTitle())} setIsMenuOpen={setIsMenuOpen} />
         <main className="flex-grow overflow-y-auto no-scrollbar">
-          <div className="container mx-auto max-w-[100vw] lg:max-w-[calc(100vw-13rem)] overflow-y-auto no-scrollbar p-4 lg:px-8 bg-background-light h-full">
+          <div className="container h-full mx-auto max-w-[100vw] lg:max-w-[calc(100vw-13rem)] overflow-y-auto no-scrollbar p-4 lg:px-8 bg-background-light dark:bg-background-dark">
             {children}
           </div>
         </main>

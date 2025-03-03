@@ -1,4 +1,4 @@
-import { CardChip } from "..";
+import { CardChip } from '..';
 
 function CardSkeleton() {
   return (
@@ -8,14 +8,13 @@ function CardSkeleton() {
           <div className="flex justify-between items-start mt-4">
             <div className="h-4 bg-gray-400 dark:bg-gray-500 rounded w-1/4"></div>
             <div
-              className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] me-3 ${'text-active'
-                }`}
+              className={`w-[1.8125rem] h-[1.8125rem] sm:w-[2.1875rem] sm:h-[2.1875rem] me-3 ${'text-active'}`}
             >
               <CardChip />
             </div>
           </div>
 
-          <div className='w-3/4 flex justify-between'>
+          <div className="w-3/4 flex justify-between">
             <div className="h-4 bg-gray-400 dark:bg-gray-500 rounded w-1/4"></div>
             <div className="h-4 bg-gray-400 dark:bg-gray-500 rounded w-1/4"></div>
           </div>
@@ -30,4 +29,4 @@ function CardSkeleton() {
   );
 }
 
-export default CardSkeleton
+export default CardSkeleton;

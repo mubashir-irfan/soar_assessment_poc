@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { mockDataService } from '../../services/mockData';
-import {APIEndpoints} from '.';
+import { APIEndpoints } from '.';
 
 const axiosInstance = axios.create({
   baseURL: '/api',
 });
 
-const createMockResponse = async (data: any, config: any) => ({
+const createMockResponse = (data: any, config: any) => ({
   data,
   status: 200,
   statusText: 'OK',
@@ -25,14 +25,23 @@ axiosInstance.interceptors.request.use(async (config) => {
     [APIEndpoints.profile.getUserProfile()]: mockDataService.getUserProfile,
   };
 
-  let mockResponse;
+  const postUrlMap: Record<string, () => Promise<any>> = {
+    [APIEndpoints.weeklyActivity.update()]: async () => {
+      const { amount, isDeposit } = JSON.parse(config.data);
+      return mockDataService.updateTodayActivity(amount, isDeposit);
+    },
+  };
 
-  if (config.url && urlMap[config.url]) {
-    mockResponse = await createMockResponse(await urlMap[config.url](), config);
+  let mockResponse;
+  const url: string = config.url ?? '';
+  if (urlMap[url]) {
+    mockResponse = await createMockResponse(await urlMap[url](), config);
+  } else if (config.method === 'post' && postUrlMap[url]) {
+    mockResponse = await createMockResponse(await postUrlMap[url](), config);
   }
 
   if (mockResponse) {
-    config.adapter = async () => mockResponse;
+    config.adapter = async () => mockResponse.data;
   }
 
   return config;

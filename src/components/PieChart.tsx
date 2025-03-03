@@ -17,7 +17,6 @@ interface PieChartProps {
 }
 
 function PieChart({ data, options }: PieChartProps) {
-
   return <Pie data={data} options={options} />;
 }
 

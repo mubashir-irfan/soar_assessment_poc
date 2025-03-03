@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface ButtonProps {
   label: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  className?: string
+  className?: string;
 }
 
 function Button({ label, onClick, type = 'button', disabled, className }: ButtonProps) {

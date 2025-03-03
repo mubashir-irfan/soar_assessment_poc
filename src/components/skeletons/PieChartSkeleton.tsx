@@ -1,4 +1,3 @@
-
 function PieChartSkeleton() {
   return (
     <div className="animate-pulse w-full h-64 relative">

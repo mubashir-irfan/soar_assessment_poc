@@ -26,14 +26,11 @@ function FormInput({
   'aria-describedby': ariaDescribedBy,
   'aria-invalid': ariaInvalid,
   readOnly,
-  defaultValue
+  defaultValue,
 }: FormInputProps) {
   return (
     <div className="mb-4">
-      <label
-        htmlFor={id}
-        className="block text-base md:text-lg text-text-primary mb-1"
-      >
+      <label htmlFor={id} className="block text-base md:text-lg text-text-primary mb-1">
         {label}
       </label>
       <input
@@ -42,8 +39,9 @@ function FormInput({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`w-full p-3 rounded-[15px] border border-border-light bg-white text-text-secondary placeholder:text-text-tertiary focus:outline-none focus:border-soar ${readOnly ? 'bg-gray-100 dark:bg-gray-800 cursor-not-allowed' : ''
-          }`}
+        className={`w-full p-3 rounded-[15px] border border-border-light bg-white text-text-secondary placeholder:text-text-tertiary focus:outline-none focus:border-soar ${
+          readOnly ? 'bg-gray-100 dark:bg-gray-800 cursor-not-allowed' : ''
+        }`}
         aria-describedby={ariaDescribedBy}
         aria-invalid={ariaInvalid}
         readOnly={readOnly}

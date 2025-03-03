@@ -1,4 +1,3 @@
-
 import { useTranslation } from 'react-i18next';
 import { RiVisaLine } from 'react-icons/ri';
 import { SiMastercard } from 'react-icons/si';
@@ -28,6 +27,7 @@ function Card({ card }: CardProps) {
           size={25}
           color={isPremium ? 'white' : '#9199AF80'}
           style={{ opacity: isPremium ? 1 : 0.5 }}
+          data-testid="mastercard-logo" // Add data-testid
         />
       );
     } else if (card.vendor === CardVendor.VISA) {
@@ -35,6 +35,7 @@ function Card({ card }: CardProps) {
         <RiVisaLine
           size={30}
           color={isPremium ? 'text-white' : '#9199AF'}
+          data-testid="visa-logo" // Add data-testid
         />
       );
     }
@@ -43,7 +44,7 @@ function Card({ card }: CardProps) {
 
   return (
     <div
-      className={`flex flex-col rounded-[1rem] sm:rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] ${
+      className={`flex flex-col rounded-[1rem] sm:rounded-[1.5625rem] w-[16.5rem] min-w-[16.5rem] sm:w-[21.875rem] sm:min-w-[21.875rem] h-[10.625rem] sm:h-[14.6875rem] overflow-hidden ${
         isPremium
           ? 'bg-gradient-to-r from-[#5B5A6F] to-[#000000]'
           : 'bg-white text-secondary border border-border-light'
