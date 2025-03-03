@@ -38,7 +38,6 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
   };
 
   const handleSend = () => {
-
     if (amountInputRef.current && selectedContact) {
       setIsSending(true);
       setTimeout(() => {
@@ -103,8 +102,9 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               aria-label="Scroll Contacts Right"
             >
               <IoIosArrowForward
-                className={`w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary ${isRTL ? 'rotate-180' : ''
-                  }`}
+                className={`w-6 h-6 sm:w-[1rem] sm:h-[1rem] text-text-secondary ${
+                  isRTL ? 'rotate-180' : ''
+                }`}
               />
             </button>
           </div>
@@ -130,8 +130,9 @@ function QuickTransferWidget({ contacts }: QuickTransferWidgetProps) {
               aria-label="Enter Amount to Send"
             />
             <button
-              className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${(selectedContact) ? '' : 'opacity-50 cursor-not-allowed'
-                } ${isSending ? 'bg-gray-600' : ''}`}
+              className={`absolute inline-end-1 ${!isRTL ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 bg-[#232323] rounded-[50px] p-3 pe-4 ps-4 flex items-center justify-center shadow-[0px_0px_4px_rgba(0,0,0,0.2)] ${
+                selectedContact ? '' : 'opacity-50 cursor-not-allowed'
+              } ${isSending ? 'bg-gray-600' : ''}`}
               onClick={handleSend}
               disabled={!selectedContact || isSending}
               aria-label="Send Amount"

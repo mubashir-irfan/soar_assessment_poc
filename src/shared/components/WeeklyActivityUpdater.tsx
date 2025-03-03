@@ -10,15 +10,12 @@ function WeeklyActivityUpdater() {
   const queryClient = useQueryClient();
 
   const { mutate: updateActivity, isPending } = usePost(
-    '/weekly-activity/update',
+    APIEndpoints.weeklyActivity.update(),
     () => {
       queryClient.invalidateQueries({
         queryKey: [APIEndpoints.weeklyActivity.getWeeklyActivity()],
-        refetchType: 'active',
-        predicate: (query) => query.queryKey.includes('weekly-activity'),
       });
-    },
-    () => { }
+    }
   );
 
   const handleUpdate = () => {
@@ -29,11 +26,9 @@ function WeeklyActivityUpdater() {
   };
 
   return (
-    <div className='px-4 flex flex-col gap-4'>
-      <p className='text-text-secondary'>
-        Update Weekly Activity
-      </p>
-      <div className='w-full flex justify-between items-center gap-4'>
+    <div className="px-4 flex flex-col gap-4">
+      <p className="text-text-secondary">Update Weekly Activity</p>
+      <div className="w-full flex justify-between items-center gap-4">
         <TextInput
           type="number"
           value={amount}
@@ -56,13 +51,11 @@ function WeeklyActivityUpdater() {
           loading={isPending}
           variant="filled"
           color="black"
-          className='mt-auto'
+          className="mt-auto"
         >
           Update
         </Button>
       </div>
-
-
     </div>
   );
 }

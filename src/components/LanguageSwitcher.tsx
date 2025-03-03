@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from '@mantine/core';
 import { GrLanguage } from 'react-icons/gr';
 import { useI18n } from '../context/I18nContext';
-import { Button, TextButton } from '../components'
+import { Button, TextButton } from '../components';
 
 interface Language {
   code: string;
@@ -14,16 +14,16 @@ function LanguageSwitcher() {
 
   const languages: Language[] = [
     { code: 'en', label: 'English' },
-    { code: 'ar', label: 'العربية' }
+    { code: 'ar', label: 'العربية' },
   ];
 
   return (
     <Menu shadow="md" width={150}>
       <Menu.Target>
         <button>
-          <div className='flex gap-2 items-center text-sm'>
+          <div className="flex gap-2 items-center text-sm">
             <GrLanguage size={16} />
-            {languages.find(lang => lang.code === i18n.language)?.label || 'Language'}
+            {languages.find((lang) => lang.code === i18n.language)?.label || 'Language'}
           </div>
         </button>
       </Menu.Target>

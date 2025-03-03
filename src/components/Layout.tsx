@@ -42,7 +42,11 @@ function Layout({ children }: { children: React.ReactNode }) {
         } lg:hidden`}
       >
         <div className="flex justify-end p-4 md:shadow-none shadow-2xl">
-          <AiOutlineClose size={24} className="text-soar cursor-pointer" onClick={() => setIsMenuOpen(false)} />
+          <AiOutlineClose
+            size={24}
+            className="text-soar cursor-pointer"
+            onClick={() => setIsMenuOpen(false)}
+          />
         </div>
         <Navbar />
       </div>

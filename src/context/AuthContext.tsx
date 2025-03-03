@@ -16,8 +16,13 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   user: null,
-  login: async () => {},
-  logout: () => {},
+  login: async () => {
+    // Default login function (to be provided by AuthProvider)
+    return Promise.resolve();
+  },
+  logout: () => {
+    // Default logout function (to be provided by AuthProvider)
+  },
   isLoading: false,
 });
 
@@ -64,13 +69,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = async () => {
     setIsLoading(true);
     try {
-     // In actual prod environemnt, the secure-cookie request would be directed to a secure mechanism (e.g an auth backend-for-frontend)
+      // In actual prod environemnt, the secure-cookie request would be directed to a secure mechanism (e.g an auth backend-for-frontend)
       await APIService.post('/api/auth/logout', {}); // Logout via BFF endpoint
       setUser(null);
       setIsAuthenticated(false);
       navigate('/login');
     } catch (error) {
-      console.error("logout failed", error);
+      console.error('logout failed', error);
     } finally {
       setIsLoading(false);
     }

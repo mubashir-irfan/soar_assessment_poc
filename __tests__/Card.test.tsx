@@ -1,7 +1,7 @@
 // Card.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import {Card} from '../src/components/Card'
+import { Card } from '../src/components/Card';
 import { CardVendor, SoarCardType } from '../src/types';
 import { I18nextProvider } from 'react-i18next';
 // import i18n from '../src/i18n'; // Adjust the path to your i18n configuration
@@ -19,7 +19,7 @@ describe('Card Component', () => {
   const renderComponent = (card = mockCard) => {
     render(
       // <I18nextProvider i18n={i18n}>
-        <Card card={card} />
+      <Card card={card} />
       // </I18nextProvider>
     );
   };

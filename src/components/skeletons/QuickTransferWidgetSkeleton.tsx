@@ -1,4 +1,3 @@
-
 function QuickTransferWidgetSkeleton() {
   return (
     <div className="px-3 py-6 sm:px-6 sm:py-9 flex flex-col justify-between gap-6 w-full max-w-full animate-pulse">

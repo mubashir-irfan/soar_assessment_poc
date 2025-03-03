@@ -1,4 +1,3 @@
-
 import { useTranslation } from 'react-i18next';
 import { RiVisaLine } from 'react-icons/ri';
 import { SiMastercard } from 'react-icons/si';

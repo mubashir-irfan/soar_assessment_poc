@@ -14,14 +14,7 @@ import designSystem from '../design-system';
 import { WeeklyActivity } from '../types';
 import { useState, useEffect } from 'react';
 
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface WeeklyActivityBarChartProps {
   data: WeeklyActivity;
@@ -55,7 +48,7 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
           color: designSystem.colors.text.secondary,
           stepSize: 100,
         },
-        border: {display: false}
+        border: { display: false },
       },
       x: {
         grid: {
@@ -64,14 +57,12 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
         ticks: {
           color: designSystem.colors.text.secondary,
         },
-        border: {display: false}
-        
+        border: { display: false },
       },
-      
     },
     plugins: {
       legend: {
-        position: 'top' as 'top',
+        position: 'top' as const,
         align: 'end',
         labels: {
           color: designSystem.colors.text.secondary,
@@ -103,7 +94,7 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
           bottomRight: 30,
         },
         borderSkipped: false,
-        barThickness: isMobile ? 12 : 14
+        barThickness: isMobile ? 12 : 14,
       },
       {
         label: t('weeklyActivity.deposit'),
@@ -116,7 +107,7 @@ function WeeklyActivitBarChart({ data }: WeeklyActivityBarChartProps) {
           bottomRight: 30,
         },
         borderSkipped: false,
-        barThickness: isMobile ? 12 : 14
+        barThickness: isMobile ? 12 : 14,
       },
     ],
   };

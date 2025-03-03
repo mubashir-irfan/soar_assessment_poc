@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FaTools } from "react-icons/fa";
+import { FaTools } from 'react-icons/fa';
 import {
   FaBuildingColumns,
   FaChartLine,
@@ -90,7 +90,9 @@ function Navbar() {
     >
       <div className="flex items-center p-4">
         <FaClipboardCheck size={35} className="text-soar" aria-hidden="true" />
-        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar">{t('navbar.soarTask')}</span>
+        <span className="ms-[0.625rem] font-[800] text-[1.5625rem] text-soar">
+          {t('navbar.soarTask')}
+        </span>
       </div>
       <ul className="flex flex-col">
         {navItems.map((item) => (
@@ -109,7 +111,7 @@ function Navbar() {
                 {item.icon}
                 <span>{t(item.label)}</span>
               </div>
-  
+
               {isActive(item.path) && (
                 <div className="absolute start-0 w-[6px] rounded-e-[10px] h-[3.75rem] bg-active" />
               )}
@@ -117,8 +119,8 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <div className='flex justify-center mb-auto mt-4'>
-        <MockDataUpdater/>
+      <div className="flex justify-center mb-auto mt-4">
+        <MockDataUpdater />
       </div>
       <div className="md:mt-auto mb-[4rem] md:mb-0">
         <div className="flex md:flex-row justify-between items-center gap-4 p-4 ">

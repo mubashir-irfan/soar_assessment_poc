@@ -13,7 +13,8 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       keyframes: {
-        'pulse-fast': { // Rename for clarity
+        'pulse-fast': {
+          // Rename for clarity
           '0%, 100%': { opacity: 1 },
           '50%': { opacity: 0.5 },
         },
@@ -44,4 +45,3 @@ module.exports = {
     },
   ],
 };
-

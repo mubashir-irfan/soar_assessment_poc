@@ -1,13 +1,6 @@
-import {
-  BankingCard,
-  CardVendor,
-  SoarCardType,
-  Transaction,
-  User,
-  WeeklyActivity
-} from '../types';
+import { BankingCard, CardVendor, SoarCardType, Transaction, User, WeeklyActivity } from '../types';
 
-let mockUserData: User = {
+const mockUserData: User = {
   id: 1,
   bankingCards: [
     {
@@ -91,19 +84,22 @@ let mockUserData: User = {
       id: 1,
       name: 'Ethan Ramirez',
       title: 'Senior Developer',
-      avatarURL: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      avatarURL:
+        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
       id: 2,
       name: 'Sophia Chen',
       title: 'Marketing Manager',
-      avatarURL: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      avatarURL:
+        'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
       id: 3,
       name: 'Liam Patel',
       title: 'UX/UI Designer',
-      avatarURL: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      avatarURL:
+        'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
   ],
   balanceHistory: {
@@ -112,7 +108,8 @@ let mockUserData: User = {
   },
   profile: {
     id: 1,
-    avatarURL: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    avatarURL:
+      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     name: 'John Doe',
     userName: 'johndoe123',
     email: 'john.doe@example.com',
@@ -166,7 +163,7 @@ const delayedPromise = <T>(data: T): Promise<T> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(data);
-    },651);
+    }, 651);
   });
 };
 

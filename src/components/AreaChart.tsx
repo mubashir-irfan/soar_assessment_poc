@@ -46,7 +46,7 @@ function AreaChart({ data, lineColor }: AreaChartProps) {
     const maxValue = Math.max(...dataValues);
     const range = maxValue - minValue;
     const idealTicks = 5; // Adjust as needed
-    let stepSize = range / idealTicks;
+    const stepSize = range / idealTicks;
 
     // Round stepSize to a nice number
     const magnitudes = Math.pow(10, Math.floor(Math.log10(stepSize)));
@@ -88,8 +88,14 @@ function AreaChart({ data, lineColor }: AreaChartProps) {
           }
 
           const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-          gradient.addColorStop(0, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0.5)`);
-          gradient.addColorStop(1, `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0)`);
+          gradient.addColorStop(
+            0,
+            `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0.5)`
+          );
+          gradient.addColorStop(
+            1,
+            `rgba(${parseInt(lineColor.slice(1, 3), 16)}, ${parseInt(lineColor.slice(3, 5), 16)}, ${parseInt(lineColor.slice(5, 7), 16)}, 0)`
+          );
           return gradient;
         },
         borderColor: lineColor,

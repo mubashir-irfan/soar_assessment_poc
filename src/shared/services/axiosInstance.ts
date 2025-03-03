@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mockDataService } from '../../services/mockData';
-import {APIEndpoints} from '.';
+import { APIEndpoints } from '.';
 
 const axiosInstance = axios.create({
   baseURL: '/api',
@@ -36,7 +36,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   const url: string = config.url ?? '';
   if (urlMap[url]) {
     mockResponse = await createMockResponse(await urlMap[url](), config);
-  }  else if (config.method === 'post' && postUrlMap[url]) {
+  } else if (config.method === 'post' && postUrlMap[url]) {
     mockResponse = await createMockResponse(await postUrlMap[url](), config);
   }
 

@@ -1,5 +1,3 @@
-
-
 function EditProfileSkeleton() {
   return (
     <div className="animate-pulse w-full">
@@ -8,12 +6,19 @@ function EditProfileSkeleton() {
           <div className="rounded-full w-24 h-24 bg-gray-300 dark:bg-gray-600"></div>
         </div>
         <div className="grid gap-8 md:grid-cols-2 md:gap-20 w-full">
-          {["name", "userName", "email", "password"].map((field) => (
+          {['name', 'userName', 'email', 'password'].map((field) => (
             <div key={field} className="mb-4 md:mb-0">
               <div className="h-10 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
             </div>
           ))}
-          {["dateOfBirth", "presentAddress", "permanentAddress", "city", "postalCode", "country"].map((field) => (
+          {[
+            'dateOfBirth',
+            'presentAddress',
+            'permanentAddress',
+            'city',
+            'postalCode',
+            'country',
+          ].map((field) => (
             <div key={field} className="mb-4 md:mb-0">
               <div className="h-10 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
             </div>
