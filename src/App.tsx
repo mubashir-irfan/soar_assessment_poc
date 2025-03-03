@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout, RouteGuard } from './components';
 import { AuthProvider } from './context/AuthContext';
-import { I18nProvider } from './context/I18nContext'; // Import I18nProvider
+import { I18nProvider } from './context/I18nContext';
 import Dashboard from './Dashboard/Dashboard';
 import Settings from './Settings/Settings';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -15,6 +15,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       retry: false,
       refetchOnReconnect: false,
+      staleTime: 0,
     },
   },
 });
@@ -27,10 +28,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
-        <AuthProvider>
-          <I18nProvider>
-            <div className="App">
-              <Router>
+        <I18nProvider>
+          <div className="App">
+            <Router>
+              <AuthProvider>
                 <Routes>
                   <Route
                     path="/*"
@@ -39,7 +40,7 @@ function App() {
                         <Layout>
                           <Routes>
                             <Route path="/" element={<Dashboard />} />
-                            <Route path="/dashboard" element={<Dashboard />} /> {/* Added this line */}
+                            <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/settings" element={<Settings />} />
                           </Routes>
                         </Layout>
@@ -47,10 +48,10 @@ function App() {
                     }
                   />
                 </Routes>
-              </Router>
-            </div>
-          </I18nProvider>
-        </AuthProvider>
+              </AuthProvider>
+            </Router>
+          </div>
+        </I18nProvider>
       </MantineProvider>
     </QueryClientProvider>
   );

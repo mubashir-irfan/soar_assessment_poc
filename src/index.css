@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply bg-background-light text-text-light;
+  }
+  html.dark {
+    @apply bg-background-dark text-text-dark;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+.animate-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(120deg, #a855f7, #6366f1, #3b82f6, #0ea5e9, #14b8a6, #a855f7);
+  z-index: -1;
+  border-radius: inherit;
+  animation: border-pulse 4s linear infinite;
+}
+
+@keyframes border-pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* Reset begins*/
 /* src/index.css */
@@ -90,26 +136,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 /* Reset ends*/
-
-@layer base {
-  html {
-    @apply bg-background-light text-text-light;
-  }
-  html.dark {
-    @apply bg-background-dark text-text-dark;
-  }
-}
-
-@layer utilities {
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-}
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {

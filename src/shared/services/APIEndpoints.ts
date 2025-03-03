@@ -7,6 +7,7 @@ const APIEndpoints = {
     },
     weeklyActivity: {
       getWeeklyActivity: () => '/weekly-activity',
+      update: () => '/weekly-activity/update',
     },
     expenseStatistics: {
       getExpenseStatistics: () => '/expense-statistics',

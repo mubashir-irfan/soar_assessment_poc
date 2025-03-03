@@ -4,7 +4,7 @@ import {
   SoarCardType,
   Transaction,
   User,
-  Contact
+  WeeklyActivity
 } from '../types';
 
 let mockUserData: User = {
@@ -147,7 +147,19 @@ export const mockDataService = {
   },
   getUserProfile: () => {
     return delayedPromise(mockUserData.profile);
-  }
+  },
+  updateTodayActivity: (amount: number, isDeposit: boolean): WeeklyActivity => {
+    const weeklyActivity = mockUserData.weeklyActivity;
+    const lastIndex = weeklyActivity.labels.length - 1;
+
+    if (isDeposit) {
+      weeklyActivity.deposits[lastIndex] += amount;
+    } else {
+      weeklyActivity.withdrawals[lastIndex] += amount;
+    }
+    mockUserData.weeklyActivity = weeklyActivity;
+    return weeklyActivity;
+  },
 };
 
 const delayedPromise = <T>(data: T): Promise<T> => {

@@ -16,8 +16,8 @@ function Dashboard() {
   const { data: transactions = [], isLoading: isTransactionsLoading } =
     useGet<Transaction[]>(APIEndpoints.transactions.getRecentTransactions(), APIEndpoints.transactions.getRecentTransactions())
 
-  const { data: weeklyActivity, isLoading: isWeeklyActivityLoading } = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity())
-
+  const { data: weeklyActivity, isLoading: isWeeklyActivityLoading , refetch:refetchWeeklyActivity} = useGet<WeeklyActivity>(APIEndpoints.weeklyActivity.getWeeklyActivity(), APIEndpoints.weeklyActivity.getWeeklyActivity())
+  // console.log('dashboard::weekly data', weeklyActivity)
   const { data: expenseStatistics = [], isLoading: isExpenseStatisticsLoading } = useGet<ExpenseStatistic[]>(APIEndpoints.expenseStatistics.getExpenseStatistics(), APIEndpoints.expenseStatistics.getExpenseStatistics())
 
   const { data: contacts = [], isLoading: isLoadingContacts } = useGet<Contact[]>(APIEndpoints.contacts.getContacts(), APIEndpoints.contacts.getContacts())
@@ -25,9 +25,10 @@ function Dashboard() {
   const { data: balanceHistory, isLoading: isLoadingBalanceHistory } = useGet<BalanceHistory>(APIEndpoints.balanceHistory.getBalanceHistory(), APIEndpoints.balanceHistory.getBalanceHistory())
 
   return (
-    <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4">
+    <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4 pb-[4rem] mb-[4rem]">
       {/* First row: Cards and Recent Transactions */}
       <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
+        <TextButton onClick={refetchWeeklyActivity}>Refetch Weekly Activity</TextButton>
         {/* Cards Section */}
         {(
           <section className="overflow-x-auto max-w-full">
@@ -127,8 +128,7 @@ function Dashboard() {
             {
               !isLoadingBalanceHistory ?
                 !!balanceHistory ? 
-                // <BalanceHistoryChart history={balanceHistory} />
-                <AreaChartSkeleton />
+                <BalanceHistoryChart history={balanceHistory} />
                   : <div className="text-text-secondary mx-auto flex justify-center items-center">{t('dashboard.noContactsAvailable')}</div>
                 : <AreaChartSkeleton />
             }

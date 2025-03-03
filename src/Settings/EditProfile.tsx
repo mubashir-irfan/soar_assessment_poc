@@ -35,8 +35,8 @@ function EditProfile() {
   };
 
   const handleEdit = () => setIsEditing(true);
+
   const handleCancel = () => {
-    console.log('onCancel', userProfile)
     if (userProfile) {
       setStagedProfile(userProfile);
       reset(userProfile)
