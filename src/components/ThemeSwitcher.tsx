@@ -1,7 +1,7 @@
 // src/components/ThemeSwitcher.tsx
 
-import React, { useState, useEffect } from 'react';
-import { MdDarkMode, MdLightMode, MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import { useEffect, useState } from 'react';
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 function ThemeSwitcher() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');

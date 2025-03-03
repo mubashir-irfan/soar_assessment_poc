@@ -169,3 +169,5 @@ const delayedPromise = <T>(data: T): Promise<T> => {
     },651);
   });
 };
+
+export default mockDataService;

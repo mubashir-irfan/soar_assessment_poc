@@ -28,7 +28,6 @@ function Dashboard() {
     <div className="h-full grid grid-rows-[auto,auto,1fr] gap-4 p-4 pb-[4rem] mb-[4rem]">
       {/* First row: Cards and Recent Transactions */}
       <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-4">
-        <TextButton onClick={refetchWeeklyActivity}>Refetch Weekly Activity</TextButton>
         {/* Cards Section */}
         {(
           <section className="overflow-x-auto max-w-full">

@@ -28,6 +28,7 @@ function Card({ card }: CardProps) {
           size={25}
           color={isPremium ? 'white' : '#9199AF80'}
           style={{ opacity: isPremium ? 1 : 0.5 }}
+          data-testid="mastercard-logo" // Add data-testid
         />
       );
     } else if (card.vendor === CardVendor.VISA) {
@@ -35,6 +36,7 @@ function Card({ card }: CardProps) {
         <RiVisaLine
           size={30}
           color={isPremium ? 'text-white' : '#9199AF'}
+          data-testid="visa-logo" // Add data-testid
         />
       );
     }
